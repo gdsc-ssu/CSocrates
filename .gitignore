@@ -3,3 +3,4 @@ workspace.json
 
 .obsidian/snippets/*
 .obsidian/plugins/*
+.obsidian/appearance.json
