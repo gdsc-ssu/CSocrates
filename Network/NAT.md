@@ -41,6 +41,9 @@ NAT는 input이 1개이고, output이 1개인 변환 함수라고 생각할 수 
 ### Dynamic NAT
 여러 개의 사설 IP 주소를 풀(pool)로 관리하고, 이 풀에서 동적으로 매핑하여 외부 통신에 사용. 여러 디바이스가 공인 IP 주소를 공유함.
 
+### NAPT (Network Address Port Translation) or PAT (Port Address Translation)
+IP 주소 뿐만 아니라 포트 번호 등도 같이 포함시켜서 내부 호스트를 구분하는 방식. (TCP, UDP에서는 포트 번호를, ICMP에서는 질의식별자를 통해 구별함.)
+
 
 # 실제 공유기 까보기
 
@@ -94,12 +97,23 @@ NAT는 input이 1개이고, output이 1개인 변환 함수라고 생각할 수 
 ## DMZ
 
 ![](NAT_3_DMZ.png)
+DMZ 선택 시 - IP 주소 입력 란 활성화
+Super DMZ 선택 시 - 네트워크 내에 감지된 MAC 주소 선택 란 활성화
 
+외부 네트워크에 서비스를 제공하면서 내부 네트워크는 보호하는 영역. (외부에 오픈된 서버영역)
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FGdtg3%2FbtrC1iDQiOD%2FRPakGslhkJo3Cgvyc6Ba70%2Fimg.png)
 
 
 ## VPN
 
 ![](NAT_4_VPN.png)
+
+VPN passthrough : VPN 트래픽이 이 라우터 (방화벽)을 통과할 수 있는지 설정
+- IPSEC : 안전한 통신을 위한 프로토콜.
+- PPTP : 오래된 VPN 프로토콜 중 하나.
+
+이를 활성화하지 않는다면, VPN 트래픽을 우리 네트워크로 들여올 수 없다.
 
 ## Network 설정
 
@@ -108,14 +122,14 @@ NAT는 input이 1개이고, output이 1개인 변환 함수라고 생각할 수 
 WAN 설정, LAN 설정, DHCP 서버 설정, DHCP 서버 예약 IP 추가 및 리스트를 관리할 수 있다.
 
 특히 WAN 설정에서 운용 모드가 NAT라고 되어있는데, 다음 옵션을 선택할 수 있다.
-- NAT
-- Bridge
-- Controller/NAT
-- Controller/Bridge
-- Agent
-- Repeater
+- NAT : 공인 IP 주소를 사설 IP 주소로 변환시키는 모드
+- Bridge : 라우터를 단순 브릿지로 동작시키는 모드. 네트워크 계층이 아닌, 스위치나 허브처럼 동작함.
+- Controller/NAT : 컨트롤러 역할 + NAT역할을 함. 컨트롤러는 네트워크 트래픽을 관리하고 분배함.
+- Controller/Bridge : 컨트롤러 역할 + 브릿지 역할
+- Agent : 라우터가 다른 네트워크 디바이스 또는 시스템과 협력하여 특별한 기능(네트워크 관리 및 감시, 보안 및 방화벽 협력, 품질 서비스 관리, 외부 시스템과의 통합, 프록시 또는 캐시 서버 기능)을 수행.
+- Repeater : 신호를 중계하여 무선 네트워크의 범위를 확장하는 역할.
 
 연결 방식은 다음 옵션을 사용할 수 있다.
-- DHCP
-- Static
+- DHCP : 네트워크에서 자동으로 IP주소, 서브넷마스크, 기본 게이트웨이, DNS 등 네트워크 설정을 부여하는 프로토콜.
+- Static : IP 주소, 서브넷마스크, 기본 게이트웨이, DNS 등 네트워크 설정이 고정되어 있는 상태. (군대에서 애용함.)
 
