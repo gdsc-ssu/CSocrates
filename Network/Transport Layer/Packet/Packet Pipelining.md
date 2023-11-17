@@ -11,7 +11,7 @@ Sender가 패킷 1개를 보내면 Receiver가 잘 받았다는 ACK를 보낼 �
 
 ### GBN (Go-Back-N)
 Go Back N이란 receiver 측에서 순서대로 받지 못한 패킷이 있다면 해당 패킷에서부터 다시 재전송하는 방식이다.
-즉 Sender의 Window의 크기는 (2^n) - 1이고, Receiver의 Window 크기는 무조건 1로 고정이다.
+즉 Sender의 Window의 크기는 (2^n) - 1이고, Receiver의 Window 크기는 무조건 1로 고정이다. (n은 Squence 번호이다.)
 해당 방식을 진행하는 과정은 다음과 같다.
 1. Receiver 측은 정상적으로 받지 못한 패킷이 있는 경우, 해당 패킷이 올 때까지 다른 패킷들을 받아도 받지 못한 패킷에 대한 ACK를 보낸다.
 	- 예시로 Sender측이 패킷 1,2,3,4,5를 전송했는데, Receiver 측이 1,2,4,5를 받았다면 Receiver 측은 ACK 1, 2, ,2 ,2를 반환한다.
@@ -31,7 +31,7 @@ ACK가 사라지는 경우
 Selective Repeat 방식은 receiver 측에서 받은 각각의 패킷들에 대해 ACK을 보내는 방식이다.
 기존의 GBN의 경우는 재전송, retransmission이 너무 과도하게 발생하는 문제점이 있었다.
 따라서 SR은 재전송에 초점을 맞춰서, 특정한 패킷이 재전송이 필요하다면 해당 패킷만 재전송하도록 진행한다.
-Window Size는 2^(m-1) 으로 해야한다. (m은 Packet ID로 사용할 수 있는 숫자의 개수)
+Window Size는 2^(m-1) 으로 해야한다. (m은 Squence 번호이다.)
 Sender의 Window Size는 
 1. Receiver 측은 ACK가 순서대로 오는 것에 대해 상관하지 않고, 받은 패킷에 대해서 ACK를 보낸다.
 	- 예시로 패킷 1, 2, 3, 4, 5를 전송했는데 Receiver측에서 1, 2, 4, 5를 받았다면 Receiver 측은 ACK 1, 2, 4, 5를 보낸다.
@@ -43,3 +43,7 @@ Sender의 패킷이 없어지는 경우
 
 #### Window Size별 오류 발생 가능성
 ![[Notes_231118_002709_57c.jpg]]![[Notes_231118_002815_b94.jpg]]
+
+### Reference
+https://velog.io/@dltmdrl1244/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-3-3.-Packet-pipelining-GBN-SR
+https://ddongwon.tistory.com/81
