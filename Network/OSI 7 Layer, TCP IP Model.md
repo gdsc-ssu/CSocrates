@@ -5,6 +5,12 @@
 
 Open Systems Interconnection
 
+- Open System이란?
+	- 어떠한 boundary를 기준으로 Surroundings에 대한 input과 output을 모두 제공하는 시스템.
+		- 쉽게 말해, 외부에서의 입력과 출력이 자유롭게 이루어지는 시스템
+	- Isolated System : input과 output을 제공하지 않는 시스템
+	- Closed System : input과 output을 제한적으로 제공하는 시스템
+
 https://standards.iso.org/ittf/PubliclyAvailableStandards/s020269_ISO_IEC_7498-1_1994(E).zip
 
 위 문서는 1994년 출간된 7498-1 개정판. (7498-1은 파트 1을 의미하며, 파트 1은 The Basic Model, 파트 2는 Security Architecture, 파트 3은 Naming and addressing, 파트 4는 Management framework 라는 이름을 갖고 있다.)
@@ -20,7 +26,7 @@ https://standards.iso.org/ittf/PubliclyAvailableStandards/s020269_ISO_IEC_7498-1
 
 ### 각 레이어는 뭘 할까? (ISO 7498-1)
 - Application Layer
-	- As the highest layer in the Reference Model of Open Systems Interconnection, the Application Layer provides the sole means for the application process ot access the OSIE. Hence the Application Layer has no boundary with a higher layer.
+	- As the highest layer in the Reference Model of Open Systems Interconnection, the Application Layer provides the sole means for the application process to access the OSIE. Hence the Application Layer has no boundary with a higher layer.
 	- 개방 시스템 상호 연결 참조 모델에서 최상위 계층인 응용 계층은 응용 프로세스가 OSI에 액세스하는 유일한 수단을 제공합니다. 따라서 응용 계층은 더 높은 계층과의 경계가 없습니다.
 - Presentation Layer
 	- The Presentation Layer provides for the representation of information that application-entities either communicate or refer to in their communication.
@@ -41,7 +47,7 @@ https://standards.iso.org/ittf/PubliclyAvailableStandards/s020269_ISO_IEC_7498-1
 	- The Physical Layer provides the mechanical, electrical, functional, and procedural means to activate, maintain, and deactivate physical-connections for bit transmission between data-link-entities. A physical-connection may involve intermediate open systems, each relaying bit transmission within the Physical Layer. Physical Layer entities are interconnected by means of a physical medium.
 	- 물리 계층은 데이터 링크 엔티티 간의 비트 전송을 위해 물리적 연결을 활성화, 유지 및 비활성화하기 위한 기계적, 전기적, 기능적 및 절차적 수단을 제공합니다. 물리적 연결은 중간 개방 시스템을 포함할 수 있으며, 각각이 물리 계층 내에서 비트 전송을 중계할 수 있습니다. 물리 계층 엔티티들은 물리적 매체를 통해 연결됩니다.
 
-# TCP/IP Model (4계층)
+# TCP/IP Model (4,5계층)
 인터넷 프로토콜 스위트(슈트) : Internet Protocol Suite는 인터넷에서 컴퓨터들이 서로 정보를 주고받는 데 쓰이는 프로토콜의 모음. 이 중 TCP와 IP가 가장 많이 쓰이기 때문에 TCP/IP 프로토콜 슈트라고 불린다.
 
 ARPANET을 개발했던 미국 방위고등연구계획국이 만들었다. 1960년대 말에 연구되었고, RFC1122번으로 등재된 것은 1989년이다. 참고로 1969년에는 아폴로 11호가 달 착륙에 성공했다. (진짜 어케했누?)
