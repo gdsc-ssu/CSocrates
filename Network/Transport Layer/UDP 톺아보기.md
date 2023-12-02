@@ -5,7 +5,11 @@
 * https://www.cloudflare.com/ko-kr/learning/ddos/udp-flood-ddos-attack/ (udp 폭주)
 ____
 ### 개요
-* 
+* [[#UDP란]]
+* [[#유튜브는 UDP를 쓸까?]]
+* [[#UDP와 DDOS]]
+* [[#UDP 브로드캐스트]]
+* [[#간단한 UDP 에코 서버]]
 ___
 ### UDP란
 UDP는 사용자 데이터그램 프로토콜의 줄임말로써 전송 계층에서 사용하는 프로토콜이다. UDP는 TCP와 대척점에 놓인 프로토콜로 TCP와 달리 패킷의 전달을 보장하지 않는다. 이로 인해 ==**UDP는 빠른 전송을 실시할 수 있지만, 패킷의 손실이 발생할 수 있다.**==
@@ -44,4 +48,64 @@ ___
 
 수신자가 복수 개 존재하는 경우 TCP를 사용할 수 없는 이유는 단순하다.  TCP의 경우 핸드 쉐이크를 통해 연결을 수립하고 해당 연결을 통해서만 데이터를 전송하는 형태이기 때문이다. 따라서  <u><b>각 커넥션 별로 패킷을 전송해야하지 한번에 복수 대상에 패킷을 전송하는 것은 불가능</b></u>하다.
 ___
-### 브로드캐스트 해보기
+### 간단한 UDP 에코 서버
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+
+#define BUF_SIZE 30
+
+void error_handling(char *message);
+
+int main(int argc, char *argv[])
+{
+    int serv_sock;
+    char message[BUF_SIZE];
+    int str_len;
+    socklen_t clnt_adr_sz;
+
+    struct sockaddr_in serv_adr, clnt_adr;
+
+    if (argc != 2)
+    {
+        printf("Usage:%s <port>\n", argv[0]);
+        exit(1);
+    }
+
+    serv_sock = socket(PF_INET, SOCK_DGRAM, 0);
+    if (serv_sock == -1)
+        error_handling("UDP socket creation error");
+
+    memset(&serv_adr, 0, sizeof(serv_adr));
+    serv_adr.sin_family = AF_INET;
+    serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
+    serv_adr.sin_port = htons(atoi(argv[1]));
+
+    if (bind(serv_sock, (struct sockaddr *)&serv_adr, sizeof(serv_adr)) == -1)
+        error_handling("bind() error");
+
+    while (1)
+    {
+        memset(message, 0, BUF_SIZE);
+        clnt_adr_sz = sizeof(clnt_adr);
+        str_len = recvfrom(serv_sock, message, BUF_SIZE, 0, (struct sockaddr *)&clnt_adr, &clnt_adr_sz);
+        printf("server received: %s\n", message);
+        sendto(serv_sock, message, str_len, 0, (struct sockaddr *)&clnt_adr, clnt_adr_sz);
+    }
+    close(serv_sock);
+    return 0;
+}
+
+void error_handling(char *message)
+{
+    fputs(message, stderr);
+    fputc('\n', stderr);
+    exit(1);
+}
+```
+위는 UDP로 작성한 간단한 에코 서버 코드의 예시이다. TCP 서버와 달리 listen과 accpet 작업을 할 필요 없다. 
