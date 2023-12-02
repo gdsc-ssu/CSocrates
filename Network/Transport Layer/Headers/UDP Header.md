@@ -1,6 +1,5 @@
 ### 목차
 - UDP Header
-- UDP Header Option
 # UDP Header 구조
 ![[Pasted image 20231202104613.png]]
 - Source / Destination Port Number
