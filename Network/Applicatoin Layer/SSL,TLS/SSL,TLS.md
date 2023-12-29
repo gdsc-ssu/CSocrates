@@ -1,3 +1,11 @@
+## 개요
+- [[#SSL(Secure Sockets Layer)]] 
+- [[#TLS(Transport Layer Security)]]
+- [[#왜 SSL을 사용해야 하는가?]]
+- [[암호화 기법]]
+- [[#SSL 인증서]]
+- [[#SSL Handshake]]
+
 ### SSL(Secure Sockets Layer)
 - ssl이란 "웹사이트의 ID를 인증하고 암호화된 연결을 생성하는 인터넷 보안 프로토콜"
 - Netscape는 개발된 프로토콜로 SSL 1.0은 1995년 개발
@@ -22,6 +30,7 @@
 ![[plainText.png]]
 - ssl이 적용되지 않으면 위 그림에서 처럼 "High Value Information"라는 문자열이 그대로 전송
 - 제 3자가 데이터를 탈취하기 쉽다.
+
 #### SSL 적용된 경우
 ![[Pasted image 20231229115752.png]]
 - ssl이 적용된 경우에는 데이터가 암호화되어서 보내진다.
