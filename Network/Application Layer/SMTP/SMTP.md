@@ -84,3 +84,11 @@ https://nordvpn.com/ko/blog/smtp-protocol/
 James F. Kurose, Keith W. Ross '컴퓨터 네트워킹 하양식 접근 8판', 최종원 외 7인, 퍼스트북(2022) 
 [컴퓨터 네트워크 제 9강 이메일과 SMTP](https://www.youtube.com/watch?v=maNnhEw4bzk)
 
+
+### 이슈
+SMTP와 HTTP 차이 
+	왜 HTTP를 안쓰는건지? 그러게?
+
+gmail도 smtp 쓰나요
+
+smtp로 첨부파일 어떻게 보내는지
