@@ -7,6 +7,10 @@ TCP/IP를 활용하여 파일을 전송한다.
 
 FTP를 사용해서 파일을 주고 받고 싶다면 FTP 서버와 FTP 클라이언트가 필요.
 
+![](https://www.sharetechnote.com/image/Network_IP_Ftp01_Login.png)
+
+TCP 연결 후 username, password를 전달하고, response 230을 받게 되면 연결 설정이 된다.
+
 # 연결 종류
 
 2가지 연결 종류가 있다.
