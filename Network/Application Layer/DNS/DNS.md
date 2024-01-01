@@ -56,7 +56,8 @@ nslookup을 활용할 수 있다.
 	- 도메인 이름을 IPv6 주소로 변환한다.
 - CNAME (Canonical NAME)
 	- 실제 호스트명 (A레코드)과 연결되는 별명, 별칭을 정의한다.
-- MX (Main Exchange)
+	- 예를 들어 아래와 같은 경우, mydomain.com은 A 레코드로 IP 주소와 연결되어 있지만 fpt.mydomain.com이나 www.blog.mydomain.com 으로 되어있는 부분은 CNAME으로 설정되는 경우, 해당 도메인을 통해 A 레코드의 도메인으로 연결할 수 있다.![[스크린샷 2024-01-01 오전 3.28.47.png]]
+- MX (Mail Exchange)
 	- 메일서버에 도달할 수 있는 라우팅정보를 제공
 - NS (Name Server)
 	- 인터넷에서 해당 도메인의 IP를 찾기 위해서 가야할 곳을 안내
