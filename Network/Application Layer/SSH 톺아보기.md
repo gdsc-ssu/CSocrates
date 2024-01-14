@@ -1,13 +1,13 @@
 ### 출처
 * https://medium.com/@jamessoun93/ssh%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94-87b58c521d6f (ssh란 + 깃헙 ssh)
 * https://library.gabia.com/contents/9008 (ssh)
-* https://sonsecurity.tistory.com/1 (텔넷과 ssh
+* https://sonsecurity.tistory.com/1 (텔넷과 ssh)
 * https://tramamte.github.io/2018/07/25/rsa/ (RSA 원리)
 * https://devocean.sk.com/blog/techBoardDetail.do?ID=163311 (깃 ssh)
 ___
 ### 개요
 * [[#SSH란]]
-* [[]]
+* [[#SSH 메시지 포맷]]
 * [[#대칭 키와 비대칭 키]]
 * [[#대칭 키 VS 비대칭 키]]
 * [[#SSH 통신 순서]]
@@ -18,7 +18,7 @@ ___
 
 **SSH는 Secure Shell의 줄임말로 원격 호스트에 안전하게 접속하기 위해 사용하는 프로토콜**이다. 과거 원격 호스트 접속에는 텔넷을 사용했지만, **텔넷은 와이어 샤크 등의 툴을 활용해 패킷을 캡쳐 할 경우 오가는 데이터가 전부 보이는 보안 취약점이 존재**했다.
 
-예를 들어 텔넷 서버에서 ls 명령어를 실행하고 싶어 클라이언트에서 ls 명령어를 입력했다고 하자. 이때 전송되는 패킷을 열어보면 다음과 같다. ls 명령어를 실행한 것을 패킷에서 곧장 확인 할 수 있다.
+예를 들어 텔넷 서버에서 ls 명령어를 실행하고 싶어 클라이언트에서 ls 명령어를 입력 했다고 하자. 이때 전송되는 패킷을 열어보면 다음과 같다. ls 명령어를 실행한 것을 패킷에서 곧장 확인 할 수 있다.
 
 ![][https://t1.daumcdn.net/cfile/tistory/2532BA5055E54C812A]
 
