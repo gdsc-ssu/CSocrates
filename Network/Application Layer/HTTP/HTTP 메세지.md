@@ -127,6 +127,7 @@ location을 제공하는 경우, 해당 페이지로 이동한다.
 502 : Bad Gateway
 503 : Service Unavailable
 
+이게 다가 아닙니다.. https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 # HTTP 헤더
 
 - 일반 헤더, 일반 캐시 헤더
