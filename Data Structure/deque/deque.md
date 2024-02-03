@@ -84,7 +84,6 @@ dq.clear()  # deque([])
 
 - `maxlen` 옵션을 설정하여 크기를 제한할 수 있다.
 	- 메모리를 효율적으로 사용하게 도와준다.
-
 ```python
 dq = deque(maxlen=3) 
 dq.extend([1, 2, 3])
@@ -133,7 +132,7 @@ access_item("Item 2")
 access_item("Item 3")
 access_item("Item 4")
 access_item("Item 5")
-# "Item 6"을 추가하면 "Item 1"이 제거됩니다.
+# "Item 6"을 추가하면 "Item 1"이 제거
 access_item("Item 6")
 
 ```
@@ -144,7 +143,7 @@ access_item("Item 6")
 from collections import deque
 
 def max_sliding_window(nums, k):
-    dq = deque()  # 인덱스를 저장합니다
+    dq = deque()  # 인덱스를 저장
     result = []
     
     for i, num in enumerate(nums):
