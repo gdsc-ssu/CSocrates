@@ -65,7 +65,7 @@ front와 rear 포인터 기준으로 동작
 
 ![[queue.png]]
 ##### 선형큐(C++)
-```
+```c++
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -85,8 +85,8 @@ int main(){
 
 	//맨 앞 뒤 원소 확인
 	int front = q.front();
-	int rear = q.back();
-	cout << front << " " << rear << endl;
+	//int rear = q.back();
+	cout << front << " " << endl;
 
 	//맨 앞 원소 삭제(1)
 	q.pop();
@@ -107,7 +107,7 @@ int main(){
 Search : O(n)
 
 ##### 원형 큐(C++)
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -200,7 +200,7 @@ int main() {
 ```
 
 ##### 우선순위 큐
-```
+```c++
 #include <iostream>
 
 #include <queue>
@@ -242,7 +242,7 @@ return 0;
 
 ##### 백준 문제 예시
 https://www.acmicpc.net/problem/2164
-```
+```c++
 #include <iostream>
 #include <stack>
 #include <queue>
