@@ -4,6 +4,10 @@
 - Single Linked List란 데이터를 저장하기 위한 구조로, 데이터를 한 쪽으로만 탐색할 수 있도록 구성한 형태이다.
 - 각 데이터가 저장된 객체를 `node`라고 지칭하고, 가장 첫 번째 node를 `head`라고 부른다.
 - 한 쪽으로만 저장되고, 검색할 수 있기 때문에 검색 시간이 최대 `O(n)` {n은 노드의 개수} 이 소요된다.
+## Array VS Linked List
+- 우리가 흔하게 말하는 배열인 Array는 저장할 수 있는 데이터의 크기가 이미 지정된 상태로 만들어지는 자료구조이다.
+- Linked List는 데이터 구조를 저장하는 단위인 node의 개수의 제한이 없는 형태이다.
+- 데이터를 저장할 때 제한 없이 저장할 수 있고 삭제할 때 데이터를 빠르게 삭제할 수 있는 Linked List가 효율적이지만, 데이터를 탐색할 때에는 Array가 더 적은 시간이 소요된다.
 ## Double Linked List VS Single Linked List
 - Single Linked List는 한 방향으로만 탐색이 가능하지만, Double Linked List는 양방향으로 탐색이 가능하다.
 - Double Linked List는 node가 다음 node의 메모리 위치인 next 뿐만 아니라 이전 node의 메모리 위치인 prev도 저장하고 있다. 따라서 각 node의 크기가 Single Liked List보다 크다.
