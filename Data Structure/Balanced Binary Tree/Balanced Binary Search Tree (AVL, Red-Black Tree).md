@@ -149,3 +149,6 @@
 
 ### AVL과 레드블랙트리의 차이
 ![[스크린샷 2024-02-23 오후 8.37.48.png]]
+
+### red-black tree에 대한 설명영상
+https://www.youtube.com/watch?v=2MdsebfJOyM
