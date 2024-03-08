@@ -3,6 +3,8 @@
 * [어째서 인덱스는 B트리일까](https://helloinyong.tistory.com/296)
 * [비트리 애니메이션](https://hudi.blog/db-index-and-indexing-algorithms/)
 * [B-tree 복잡도](https://cs.stackexchange.com/questions/59453/why-is-b-tree-search-olog-n)
+* [B-tree 삽입 연산 이미지](https://velog.io/@emplam27/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EA%B7%B8%EB%A6%BC%EC%9C%BC%EB%A1%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-B-Tree#-case-2-%EC%82%AD%EC%A0%9C%ED%95%A0-key-k%EA%B0%80-%EB%82%B4%EB%B6%80-%EB%85%B8%EB%93%9C%EC%97%90-%EC%9E%88%EA%B3%A0-%EB%85%B8%EB%93%9C%EB%82%98-%EC%9E%90%EC%8B%9D%EC%97%90-%ED%82%A4%EA%B0%80-%EC%B5%9C%EC%86%8C-%ED%82%A4%EC%88%98%EB%B3%B4%EB%8B%A4-%EB%A7%8E%EC%9D%84-%EA%B2%BD%EC%9A%B0)
+* [전체적인 개론](https://condor.depaul.edu/ichu/csc383/notes/notes7/btree.html)
 ___
 ### 개요
 * [[#B-tree란]]
@@ -25,7 +27,7 @@ ___
 ___
 ### B-tree의 기원
 
-![[Pasted image 20240308145729.png]]
+![](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20Pasted%20image%2020240308145729.png)
 
 <b><u>비 트리의 탄생 배경은 디스크 탐색에 있다.</u></b> 디스크에 데이터를 저장하면 데이터는 특정 트랙, 특정 섹터에 저장된다. 이때 데이터가 저장되는 구역을 데이터 블록이라 하고 각각의 블록 안에 실질적인 데이터가 저장되게 된다. 
 
@@ -33,7 +35,7 @@ ___
  
 이를 위해 인덱스가 존재한다. **인덱스는 목차와 같은 역할로 여러 블럭을 묶어 효율적인 데이터 탐색을 하게 해준다.** 인덱스는 기존 데이터 배열과 분리되 별개의 형태로 존재하는데 이 각각의 인덱스가 포인터 역할을 해 블럭을 전부 순회할 필요 없이 인덱스를 통한 접근이 가능해진다.
 
-![[Pasted image 20240308150410.png]]
+![](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20Pasted%20image%2020240308150410.png)
 
 
 이에 따라서 곧 ==**데이터 블럭을 탐색하는 행위는 해당 데이터 블럭이 위치한 인덱스를 파악하는 행위가 됐고 이 인덱스를 관리하는데 있어 B-tree는 무엇보다도 효율적인 형태**==였다.
@@ -73,7 +75,7 @@ SELECT index FROM DISK WHERE index > 20 AND index < 100;
 ___
 ### B-tree의 정의
 
-![[스크린샷 2024-03-08 오후 4.39.34.png]]
+![](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-03-08%20%EC%98%A4%ED%9B%84%204.39.34.png)
 1. **모든 노드안의 데이터는 오름차 순으로 정렬돼 있다.**
 2. **리프노드가 아닐 경우 각 노드는 자신의 데이터 수 + 1 만큼의 자식을 갖고 있어야 한다.**
 3. 자식은 각각 다른 범위를 갖는데 범위는 다음과 같이 설정된다.
@@ -92,7 +94,7 @@ ____
 
 아래의 이미지를 보면 직관적으로 이해가 된다. 아래는 28을 탐색하는 알고리즘이다.
 
-![[b-tree-search-008af18fe34f881eed12cc302d49daf2.gif|https://hudi.blog/db-index-and-indexing-algorithms/]]
+![https://hudi.blog/db-index-and-indexing-algorithms/](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20b-tree-search-008af18fe34f881eed12cc302d49daf2.gif)
 직관적으로 뭔가 O(logN)의 복잡도를 가질 것 같지만 설명하자면 뭔가 난해하다. 하나하나 짚고 넘어가보자. 우선적으로 비 트리의 높이에 대해 생각해보자. **차수를 m이라고 한다면, 최대 m - 1 개의 데이터를 가질 수 있으므로 각 노드는 최대 m개의 자식을 가질 수 있다.**
 
 이에 따라 **트리의 높이가 높아질 때마다 트리에 저장할 수 있는 데이터의 수는 m의 제곱으로 증가**하게 된다. 따라서 **최적의 경우를 고려할 경우 트리에는 최대 m^h(트리의 높이) 만큼의 데이터를 가질 수 있게 된다.**
@@ -130,13 +132,13 @@ def search(node, key):
 #### Insert
 비 트리의 삽입의 핵심은 균형이 무너지는 경우 **루트까지 트리의 리밸런싱을 진행하며 전체 트리의 높이를 1씩 증가시키는 방법으로 대응한다는 것이다.**
 
-![[ezgif.com-video-to-gif-converter.gif]]
+![](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20ezgif.com-video-to-gif-converter.gif)
 
 원**론적인 비 트리의 삽입 알고리즘은 바텀 업 방식으로 동작**한다. 아래의 이미지를 보자.
 
-![[Pasted image 20240309002359.png]]
-![[Pasted image 20240309002413.png]]
-![[Pasted image 20240309002432.png]]
+![](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20Pasted%20image%2020240309002359.png)
+![](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20Pasted%20image%2020240309002413.png)
+![](https://csocrates.s3.ap-northeast-2.amazonaws.com/B-tree%20/%20Pasted%20image%2020240309002432.png)
 작업의 진행 순서를 확인해보면 우선적으로 리프 노드까지 이동한 후 리프 노드에서 분할이 요구되면 거꾸로 흐름을 거슬러 올라가며 분할이 진행되는 것을 확인할 수 있다. 하지만 아래 코드를 살펴보면 다른 형태로 구현한 것을 확인할 수 있다.
 
 ```python
