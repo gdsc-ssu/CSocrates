@@ -176,7 +176,6 @@ TCP 트래픽을 관리하기 때문에 수 많은 요청이 들어올 수 있�
 **클래식 로드 밸런서(CLB)**
 앞서 언급한 두 밸런서보다 성능이 뒤처지고 거의 사용하지 않는 레거시임
 
-
 ALB에서 제공하는 레이어 7의 HTTP/HTTPS 라우팅 가능, NLB에서 제공하는 TCP 트래픽 요청 라우팅 기능 모두 CLB로 처리 가능
 단점으로는 요청과 네트워크 연결에 근거하여 서버 트래픽을 제어할 수 있으나 네트워크 호스트가 누구인지 알 수 없음
 따라서 안전한 연결을 해도 되는지 아닌지에 대한 판단 불가
@@ -194,7 +193,7 @@ ELB를 사용할 때 에러가 발생할 수 있는데...
 
 이 문제는 서버 레이어, 데아터베이스 레이어에서 발생하기 때문에 쉽게 해결 가능
 
-로드 밸런서에는 최대 접속 시간 제한이라는 설정이 있는데, 디폴트는 60초로 지정되어 있으며 로드 밸런서가 60초동안 아무런 데이터도 전달받지 못할 경우 연결을 자동으로 종료하고 타임아웃 에러를 생서ㅇ함
+로드 밸런서에는 최대 접속 시간 제한이라는 설정이 있는데, 디폴트는 60초로 지정되어 있으며 로드 밸런서가 60초동안 아무런 데이터도 전달받지 못할 경우 연결을 자동으로 종료하고 타임아웃 에러를 생성함
 
 현재 돌아가는 애플리케이션의 규모가 크다면 최대 접속 시간 제한을 변경해 로드 밸런서가 기다려줄 수 있는 시간을 조금이라도 늘려보면 됨
 그렇지 않다면 직접 애플리케이션을 수정해서 서버로 전송되는 데이터의 양을 조절하거나 서버에서의 응답 시간을 최적화시켜야함
@@ -204,37 +203,11 @@ ELB를 사용할 때 에러가 발생할 수 있는데...
 이 헤더는 HTTP/HTTPS 요청을 로드 밸런서에서 받을 때 출처에 대한 정보를 담고 있음
 
 즉, X-Forwarded-For(XFF) 헤더는 HTTP 요청 헤더 중 하나로, 클라이언트의 IP 주소를 식별하는 데 사용됨
+XFF 헤더는 HTTP 프록시나 로드 밸런서를 통해 웹 서버에 접속하는 클라이언트의 실제 IP 주소를 식별하는 사실상의 표준 헤더임
 
 ![[X-Forwarded-For 헤더의 사용 용도.png|600]]
 
-```
-String ip = request.getHeader("X-Forwarded-For");
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("Proxy-Client-IP");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("WL-Proxy-Client-IP");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("HTTP_CLIENT_IP");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR");  
-        }  
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
-            ip = request.getRemoteAddr();  
-        }
-```
-
-다음과 같은 순서로 클라이언트 IP를 찾을 수 있음
-
-위 코드에서는 여러 헤더를 확인할 수 있는데, 
-
-이때 표준으로 사용하는 HTTP 헤더는 "X-Forwarded-For"이다. XFF 헤더는 HTTP 프록시나 로드 밸런서를 통해 웹 서버에 접속하는 클라이언트의 실제 IP 주소를 식별하는 사실상의 표준 헤더임
-
 > X-Forwarded-For: < client >, < proxy1 >, < proxy2 >
-
-문법은 위와 같고, 지시자에 대한 설명은 아래와 같음
 
 < client > : 클라이언트 IP 주소
 < proxy1 >, < proxy2 > : 하나의 요청이 여러 프록시들을 거치면, 각 프록시의 IP 주소들이 차례로 열거됨. 즉, 가장 오른쪽 IP 주소는 가장 마지막에 거친 프록시의 IP 주소임
