@@ -38,6 +38,11 @@ NoSQL과 같은 관계형 데이터베이스가 아닌 경우에는 DynamoDB와 
 다차원 데이터 분석을 할 때 유용
 큰 데이터를 한 번에 불러오고 실시간이 아니라, 이미 저장된 데이터를 기반으로 히스토리컬 데이터를 불러올 때 사용
 트랜잭션 프로세싱이 사용되지 않는다.
+
+**요약**
+온라인 분석 처리(OLAP)의 기본적인 목적은 집계된 데이터를 분석하는 것이고 온라인 트랜잭션 처리(OLTP)의 기본적인 목적은 데이터베이스 트랜잭션을 처리하는 것입니다.
+
+---
 # 데이터베이스 백업
 컴퓨터를 사용하다가 저장되지 않는 파일이 날라간다면 어떨까? 바로 재앙 발생이다.
 데이터를 저장하는 데이터베이스도 마찬가지이다!
@@ -65,14 +70,20 @@ aws rds describe-db-instances --db-instance-identifier mydbinstance
 데이터베이스에서 이벤트(쓰기, 읽기 등)가 발생하면 원래 데이터베이스 인스턴스에 업데이트 하는 동시에 존재하는 가용 영역에 복제본이 만들어진다.
 복제본 생성에 실패하는 경우 다른 안정 가용 영역을 찾아서 복제를 수행한다.
 이를 통해서 `재해 복구`(disaster recovery)를 구현할 수 있다.
+
+>[!info] 추가 설명
+하나의 가용 영역에 설치된 RDS의 master 인스턴스, 즉 active 인스턴스에 문제가 생기면 다른 AZ에 설치된 Standby 인스턴스가 master로 자동 승격돼 서버를 운영한다.
+Standby 인스턴스는 평상시 master 인스턴스에 발생하는 데이터 변화를 동기 방식(sync)으로 복제하여(Aurora는 비동기식) 동일한 데이터를 유지하기만 한다. 즉 읽기 전용 복제본으로 사용할 수 없고 이것이 목적이라면 Read Replica를 사용해야 한다.
+> [출처](https://velog.io/@amoeba25/%EB%8B%A4%EC%A4%91-%EC%98%81%EC%97%ADMulti-AZ-%EC%9D%BD%EA%B8%B0-%EC%A0%84%EC%9A%A9Read-Replica-%EB%B3%B5%EC%A0%9C)
 #### 읽기 전용
 읽기 전용 복사본 (read replica)는 데이터를 "읽기 위한" 데이터베이스 복제본이다.
 따라서 읽기 이외의 작업은 수행할 수 없다.
 왜 읽기 전용 데이터베이스를 복사할까?
 데이터베이스의 대부분 요청은 읽기 요청이기 때문이다.
 
-읽기 전용으로 만들 수 있는 복제본의 한계는 최대 5개이다. - MySQL는 5개이다. 최대 15개까지 가능함.
-[Amazon RDS for MySQL, MariaDB 및 PostgreSQL에서는 DB 인스턴스당 최대 15개의 읽기 전용 복제본을 추가할 수 있습니다. Amazon RDS for Oracle 및 SQL Server에서는 DB 인스턴스당 최대 5개의 읽기 전용 복제본을 추가할 수 있습니다.](https://aws.amazon.com/ko/rds/features/read-replicas/)
+읽기 전용으로 만들 수 있는 복제본의 한계는 최대 5개이다. [(MySQL는 5개이다. 최대 15개까지 가능함.)](https://aws.amazon.com/ko/rds/features/read-replicas/)
+![[Pasted image 20240525104928.png]]
+
 # 캐시
 엘라스틱 캐시 (ElasticCache)는 RDS에서 운영은 아니지만, RDS 성능 개선을 위해 알아두면 좋다.
 데이터베이스보다 훨씬 빠르다.
@@ -120,3 +131,4 @@ RDS가 만들어지게된다.
 # 참고
 - [AWS RDS 예상 비용 계산법](https://www.ibm.com/docs/ko/tarm/8.12.3?topic=rds-estimated-demand-costs-aws-database-servers)
 - [RDS Read Replicas와 RDS Multi AZ](https://velog.io/@alsry922/RDS-Read-Replicas%EC%99%80-RDS-Multi-AZ)
+- [Amazon RDS vs Amazon Aurora](https://support.bespinglobal.com/ko/support/solutions/articles/73000544784--aws-amazon-aurora-%EC%99%80-amazon-rds-%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%B0%A8%EC%9D%B4-%EB%B0%8F-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B0%A9%EB%B2%95)
