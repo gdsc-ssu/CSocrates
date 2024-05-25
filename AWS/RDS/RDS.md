@@ -59,7 +59,7 @@ AB는 정보를 s3 버킷에 저장한다.
 # 데이터베이스 상태 확인하기
 aws rds describe-db-instances --db-instance-identifier mydbinstance
 ```
-![[스크린샷 2024-05-24 오후 11.10.48.png]]
+![](https://obsidian-sanghyeon.s3.ap-northeast-2.amazonaws.com/RDS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-05-24%20%EC%98%A4%ED%9B%84%2011.10.48.png)
 스냅샷은 개발자가 수동으로 생성해야하고, 원본 RDS를 삭제해도 스냅샷은 존재하여 삭제된 인스턴스를 되살릴 수 있다.
 #### 백업을 어떻게 하는데?
 백업을 만들면 새로운 데이터베이스 인스턴스를 만든다.
@@ -83,7 +83,7 @@ Standby 인스턴스는 평상시 master 인스턴스에 발생하는 데이터 
 데이터베이스의 대부분 요청은 읽기 요청이기 때문이다.
 
 읽기 전용으로 만들 수 있는 복제본의 한계는 최대 5개이다. [(MySQL는 5개이다. 최대 15개까지 가능함.)](https://aws.amazon.com/ko/rds/features/read-replicas/)
-![[Pasted image 20240525104928.png]]
+![](https://obsidian-sanghyeon.s3.ap-northeast-2.amazonaws.com/RDS%20/%20Pasted%20image%2020240525104928.png)
 Primary 인스턴스에 부하가 덜 가고 결과적으로 쓰기와 읽기가 분리되어 부하가 분산되므로 각각의 트랜잭션이 빨라진다.
 
 같은 가용 영역을 사용하면 Read Replica는 소스 인스턴스와 동일한 기본 스토리지를 공유하므로 비용이 절감되는데, 다른 가용 영역, 심지어는 다른 리전에도 설치될 수 있다.
@@ -91,7 +91,7 @@ Primary 인스턴스에 부하가 덜 가고 결과적으로 쓰기와 읽기가
 엘라스틱 캐시 (ElasticCache)는 RDS에서 운영은 아니지만, RDS 성능 개선을 위해 알아두면 좋다.
 데이터베이스보다 훨씬 빠르다.
 엘라스틱 캐시는 클라우드 내에서 인메모리를 만들어서 요청이 들어오면 캐시에 저장된 데이터를 불러온다.
-데이터베이스와 캐시의 정합서을 맞추는 것은 굉장히 중요하다.
+데이터베이스와 캐시의 정합성을 맞추는 것은 굉장히 중요하다.
 #### 맴캐시드
 맴캐시드 (memcached)는 오픈소스임, 분산 메모리 캐싱 시스템이다.
 메모리 사용량에 있어서 문자열 자료형을 처리하는데 주로 사용한다. 즉 텍스트 기반 데이터를 다룰 때 사용하면 좋다.
@@ -101,7 +101,7 @@ Primary 인스턴스에 부하가 덜 가고 결과적으로 쓰기와 읽기가
 정렬을 해야하거나 실시간으로 업데이트 되는 '리더보드 데이터'를 사용할 때 레디스는 좋은 선택이 된다.
 또한 다양한 애플리케이션 (데이터베이스, Amazon SNS Messaging System)에서 사용되고, 다중 가용 영역을 포함한다.
 #### 비교
-![[스크린샷 2024-05-25 오전 10.53.13.png]]
+![](https://obsidian-sanghyeon.s3.ap-northeast-2.amazonaws.com/RDS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-05-25%20%EC%98%A4%EC%A0%84%2010.53.13.png)
 AWS ElasticCache에서 해당 기능들을 사용할 수 있다.
 # 실습
 [CLI 명령들](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli_rds_code_examples.html)
@@ -114,7 +114,7 @@ aws rds create-db-instance \
     --master-user-password secret99 \
     --allocated-storage 20
 ```
-![[스크린샷 2024-05-24 오후 9.49.32.png]]
+![](https://obsidian-sanghyeon.s3.ap-northeast-2.amazonaws.com/RDS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-05-24%20%EC%98%A4%ED%9B%84%209.49.32.png)
 RDS가 만들어지게된다.
 >[!info]
 >  * --db-instance-identifier
