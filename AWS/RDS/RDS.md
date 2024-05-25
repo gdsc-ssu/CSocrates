@@ -74,7 +74,8 @@ aws rds describe-db-instances --db-instance-identifier mydbinstance
 >[!info] 추가 설명
 하나의 가용 영역에 설치된 RDS의 master 인스턴스, 즉 active 인스턴스에 문제가 생기면 다른 AZ에 설치된 Standby 인스턴스가 master로 자동 승격돼 서버를 운영한다.
 Standby 인스턴스는 평상시 master 인스턴스에 발생하는 데이터 변화를 동기 방식(sync)으로 복제하여(Aurora는 비동기식) 동일한 데이터를 유지하기만 한다. 즉 읽기 전용 복제본으로 사용할 수 없고 이것이 목적이라면 Read Replica를 사용해야 한다.
-> [출처](https://velog.io/@amoeba25/%EB%8B%A4%EC%A4%91-%EC%98%81%EC%97%ADMulti-AZ-%EC%9D%BD%EA%B8%B0-%EC%A0%84%EC%9A%A9Read-Replica-%EB%B3%B5%EC%A0%9C)
+또한 평상시엔 master 인스턴스의 IP를 사용하다가 active 인스턴스에 문제가 발생하면 이 도메인은 Standby 인스턴스 IP로 변경돼 자동으로 장애를 복구한다.
+>[출처](https://velog.io/@amoeba25/%EB%8B%A4%EC%A4%91-%EC%98%81%EC%97%ADMulti-AZ-%EC%9D%BD%EA%B8%B0-%EC%A0%84%EC%9A%A9Read-Replica-%EB%B3%B5%EC%A0%9C)
 #### 읽기 전용
 읽기 전용 복사본 (read replica)는 데이터를 "읽기 위한" 데이터베이스 복제본이다.
 따라서 읽기 이외의 작업은 수행할 수 없다.
@@ -83,7 +84,9 @@ Standby 인스턴스는 평상시 master 인스턴스에 발생하는 데이터 
 
 읽기 전용으로 만들 수 있는 복제본의 한계는 최대 5개이다. [(MySQL는 5개이다. 최대 15개까지 가능함.)](https://aws.amazon.com/ko/rds/features/read-replicas/)
 ![[Pasted image 20240525104928.png]]
+Primary 인스턴스에 부하가 덜 가고 결과적으로 쓰기와 읽기가 분리되어 부하가 분산되므로 각각의 트랜잭션이 빨라진다.
 
+같은 가용 영역을 사용하면 Read Replica는 소스 인스턴스와 동일한 기본 스토리지를 공유하므로 비용이 절감되는데, 다른 가용 영역, 심지어는 다른 리전에도 설치될 수 있다.
 # 캐시
 엘라스틱 캐시 (ElasticCache)는 RDS에서 운영은 아니지만, RDS 성능 개선을 위해 알아두면 좋다.
 데이터베이스보다 훨씬 빠르다.
@@ -97,7 +100,9 @@ Standby 인스턴스는 평상시 master 인스턴스에 발생하는 데이터 
 레디스(redis)는 복합한 데이터 타입(리스트, 해시 테이블 등)을 메모리에 저장할 수 있다.
 정렬을 해야하거나 실시간으로 업데이트 되는 '리더보드 데이터'를 사용할 때 레디스는 좋은 선택이 된다.
 또한 다양한 애플리케이션 (데이터베이스, Amazon SNS Messaging System)에서 사용되고, 다중 가용 영역을 포함한다.
-
+#### 비교
+![[스크린샷 2024-05-25 오전 10.53.13.png]]
+AWS ElasticCache에서 해당 기능들을 사용할 수 있다.
 # 실습
 [CLI 명령들](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli_rds_code_examples.html)
 ```sh
