@@ -147,3 +147,4 @@ curl https://$DOMAIN_NAME/index.html
 ## Reference
 
 [[AWS] S3와 CloudFront 연동하기](https://velog.io/@rungoat/AWS-S3%EC%99%80-CloudFront-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0)
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
