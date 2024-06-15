@@ -73,6 +73,8 @@
 - 방법은 간단하다. S3의 퍼블릭접근을 막은 후 CloudFront만을 사용해서 접근할 수 있게 만들면 된다.
 
 ## 실습
+- github 관련 코드입니다.
+https://github.com/AWSCookbook/Security/tree/main/110-Serving-Web-Content-Securely-from-S3-with-CloudFront
 
 ```bash
 ## S3 버킷 생성
