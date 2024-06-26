@@ -20,19 +20,19 @@
 
 
 - 윈도우에서 지원되는 SSL과 TLS
-![[스크린샷 2023-01-06 오후 6.47.29.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SSL%2CTLS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-01-06%20%EC%98%A4%ED%9B%84%206.47.29.png)
 
 > 현재는 모든 SSL은 지원하지 않고, TLS만 사용한다.
 
 ### 왜 SSL을 사용해야 하는가?
 - ssl같은 보안을 적용하지 않고 그냥 데이터를 주고 받는다면 제 3자가 데이터를 쉽게 탈취할 수 있다.
 #### SSL이 적용되지 않은 경우
-![[plainText.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SSL%2CTLS%20/%20plainText.png)
 - ssl이 적용되지 않으면 위 그림에서 처럼 "High Value Information"라는 문자열이 그대로 전송
 - 제 3자가 데이터를 탈취하기 쉽다.
 
 #### SSL 적용된 경우
-![[Pasted image 20231229115752.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SSL%2CTLS%20/%20Pasted%20image%2020231229115752.png)
 - ssl이 적용된 경우에는 데이터가 암호화되어서 보내진다.
 - 제 3자가 탈취한다 해도 복호화하기 힘들기 때문에 상대적으로 안전해진다.
 
@@ -50,10 +50,10 @@
 - CA(Certificate authority) 혹은 Root Certificate 라고도 불림
 - 민간기업 중 엄격한 심사를 통해서 선정된 SSL 인증서 발급 기업
 - 이 CA는 기본적으로 브라우저에 내장되어 있다.
-![[스크린샷 2023-12-29 오후 3.26.42.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SSL%2CTLS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-12-29%20%EC%98%A4%ED%9B%84%203.26.42.png)
  
 - 맥의 경우 키체인에서 CA 인증서들을 확인할 수 있다.
-![[스크린샷 2023-12-29 오후 3.25.04.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SSL%2CTLS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-12-29%20%EC%98%A4%ED%9B%84%203.25.04.png)
 
 ### SSL 인증서가 서비스를 보증하는 방법
 1. 웹 브라우저가 서버에 접속할 때 서버는 제일 먼저 인증서를 제공
@@ -63,7 +63,7 @@
 => 즉 안전하다.
 
 ### SSL Handshake
-![[Pasted image 20231229160000.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SSL%2CTLS%20/%20Pasted%20image%2020231229160000.png)
 - 파란 부분은 tcp handshake
 - 노란 부분이 ssl handshake
 

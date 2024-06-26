@@ -1,7 +1,7 @@
 ### 목차
 - UDP Header
 # UDP Header 구조
-![[Pasted image 20231202104613.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/UDP%20Header%20/%20Pasted%20image%2020231202104613.png)
 - Source / Destination Port Number
 	- 16비트
 	- 발신지, 목적지 포트 번호
