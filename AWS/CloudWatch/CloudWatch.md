@@ -183,8 +183,247 @@ CloudWatch 경보를 통해 이벤트를 발생시켜 개발자의 개입을 최
 
 ### CloudWatch 실습
 
+**EC2 인스턴스의 CPU/메모리 시각화해서 확인하기
 
+먼저 EC2에 적용할 역할 생성
 
+![[Pasted image 20240629192437.png]]
+
+그 후, EC2 생성
+
+![[Pasted image 20240629193921.png]]
+
+IAM 인스턴스 프로파일에 위에서 생성한 역할을 적용하면 됨
+
+그 후, 이 EC2에 Cloudwatch Agent를 설정하고 AMI로 만들어서 대시보드로 보기 위한 작업을 진행해보자
+
+System Manager -> 명령 실행에서 아래 명령을 실행함
+
+![[Pasted image 20240629194155.png]]
+
+이름과 인스턴스를 선택해줌
+
+![[Pasted image 20240629194331.png]]
+
+그 후 파라미터 생성
+
+![[Pasted image 20240629194513.png]]
+
+값란에 다음 코드 입력
+```json
+{
+
+"agent": {
+
+"metrics_collection_interval": 10,
+
+"logfile": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log"
+
+},
+
+"metrics": {
+
+"namespace": "CWAgent",
+
+"metrics_collected": {
+
+"cpu": {
+
+"resources": ["*"],
+
+"measurement": [
+
+{
+
+"name": "cpu_usage_idle",
+
+"rename": "CPU_USAGE_IDLE",
+
+"unit": "Percent"
+
+},
+
+{
+
+"name": "cpu_usage_nice",
+
+"unit": "Percent"
+
+},
+
+"cpu_usage_guest"
+
+],
+
+"totalcpu": **false**,
+
+"metrics_collection_interval": 10,
+
+"append_dimensions": {
+
+"customized_dimension_key_1": "customized_dimension_value_1",
+
+"customized_dimension_key_2": "customized_dimension_value_2"
+
+}
+
+},
+
+"disk": {
+
+"resources": ["/", "/tmp"],
+
+"measurement": [
+
+{
+
+"name": "free",
+
+"rename": "DISK_FREE",
+
+"unit": "Gigabytes"
+
+},
+
+"total",
+
+"used"
+
+],
+
+"ignore_file_system_types": ["sysfs", "devtmpfs"],
+
+"metrics_collection_interval": 60,
+
+"append_dimensions": {
+
+"customized_dimension_key_3": "customized_dimension_value_3",
+
+"customized_dimension_key_4": "customized_dimension_value_4"
+
+}
+
+},
+
+"diskio": {
+
+"resources": ["*"],
+
+"measurement": ["reads", "writes", "read_time", "write_time", "io_time"],
+
+"metrics_collection_interval": 60
+
+},
+
+"swap": {
+
+"measurement": ["swap_used", "swap_free", "swap_used_percent"]
+
+},
+
+"mem": {
+
+"measurement": ["mem_used", "mem_cached", "mem_total", "mem_used_percent"],
+
+"metrics_collection_interval": 60
+
+},
+
+"net": {
+
+"resources": ["eth0"],
+
+"measurement": ["bytes_sent", "bytes_recv", "drop_in", "drop_out"]
+
+},
+
+"netstat": {
+
+"measurement": ["tcp_established", "tcp_syn_sent", "tcp_close"],
+
+"metrics_collection_interval": 60
+
+},
+
+"processes": {
+
+"measurement": ["running", "sleeping", "dead"]
+
+}
+
+},
+
+"append_dimensions": {
+
+"ImageId": "${aws:ImageId}",
+
+"InstanceId": "${aws:InstanceId}",
+
+"InstanceType": "${aws:InstanceType}",
+
+"AutoScalingGroupName": "${aws:AutoScalingGroupName}"
+
+},
+
+"aggregation_dimensions": [["ImageId"], ["InstanceId", "InstanceType"], ["d1"], []],
+
+"force_flush_interval": 30
+
+},
+
+"logs": {
+
+"logs_collected": {
+
+"files": {
+
+"collect_list": [
+
+{
+
+"file_path": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log",
+
+"log_group_name": "MyEc2InstanceAgentLog.log",
+
+"log_stream_name": "MyEc2InstanceAgentLog.log",
+
+"timezone": "LOCAL"
+
+}
+
+]
+
+}
+
+},
+
+"log_stream_name": "my_log_stream_name",
+
+"force_flush_interval": 15
+
+}
+
+}
+
+```
+
+또 다른 명령 실행
+
+![[Pasted image 20240629194718.png]]
+
+![[Pasted image 20240629195214.png]]
+
+configure location에 이전에 만들었던 파라미터 이름을 사용
+
+여기서 CloudWatch -> EC2 리소스 상태를 가보면 리소스 상태를 확인할 수 있음
+
+![[Pasted image 20240629195626.png]]
+
+메모리 사용은 아직 확인할 수 없는데, 아직 CW Agent에서 메모리 값을 주지 않아서 그럼(5분마다 확인 가능)
+
+EC2 부하 테스트를 위해 stress 툴을 설치해서 이미지와 템플릿을 연결하면...
+
+![[Pasted image 20240629200339.png]]
 
 
 ### reference
