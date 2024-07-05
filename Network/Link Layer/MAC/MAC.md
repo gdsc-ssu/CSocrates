@@ -19,12 +19,12 @@ mac을 만드는 세가지 방법
 - 전체 크기의 채널을 작은 부분으로 나눔 (시간, 공간 등)
 ##### TDMA
 - Time Division Multiple access : 각 노드의 차례가 지정되어 있고, 자기 순서에 맞춰서 실행
-![[스크린샷 2023-10-10 오후 5.21.34.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/MAC%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-10-10%20%EC%98%A4%ED%9B%84%205.21.34.png)
 
 ##### FDMA
 - Frequency Division Multiple Access : 각 노드의 전용 채널을 만듬
 	(노드의 개수 m, 전체 채널의 크기 R, 각 노드당 전용 채널의 크기 R/m)
-![[스크린샷 2023-10-10 오후 5.22.37.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/MAC%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-10-10%20%EC%98%A4%ED%9B%84%205.22.37.png)
 
 #### 2. random access
 - 각 노드가 사용하고 싶을 때 사용.
@@ -40,10 +40,10 @@ mac을 만드는 세가지 방법
 
 ##### Polling
 - 하나의 마스터 노드를 두고, 그 마스터 노드가 차례를 체어하는 방식
-![[스크린샷 2023-10-10 오후 5.37.39.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/MAC%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-10-10%20%EC%98%A4%ED%9B%84%205.37.39.png)
 ###### Token passing
 - "토큰"이라는 특별한 메세지를 사용한다
 - 이 토큰을 가지고 있는 노드만 메세지를 전송할 수 있는 방식
 - 토큰 자체를 잃어버리면 모든 네트워크가 멈춰버리기 때문에 사용하지 않는다.
 
-![[스크린샷 2023-10-10 오후 5.37.54.png]]- 
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/MAC%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-10-10%20%EC%98%A4%ED%9B%84%205.37.54.png)

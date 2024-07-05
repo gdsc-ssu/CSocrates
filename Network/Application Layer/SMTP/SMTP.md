@@ -5,7 +5,7 @@
 
 ### 인터넷 이메일 시스템 구조
 
-![[인터넷 이메일 시스템 구조.jpeg|400]]
+![400](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SMTP%20/%20%EC%9D%B8%ED%84%B0%EB%84%B7%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B5%AC%EC%A1%B0.jpeg)
 user agent : 개인이 메일을 읽거나 쓸때 사용, 관리 기능 수행
 mail server : 다수 사용자들의 메일 박스 관리, 메일 송/수신 제어
 
@@ -14,7 +14,7 @@ mail server : 다수 사용자들의 메일 박스 관리, 메일 송/수신 제
 
 #### 동작 과정
 
-![[동작 과정.jpeg]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SMTP%20/%20%EB%8F%99%EC%9E%91%20%EA%B3%BC%EC%A0%95.jpeg)
 
 	1️⃣ 송수신자 user agent에서 메일 작성 후 서버로 전송
 	2️⃣ 송수신자 메일 서버의 출력 메세지 큐에 저장
@@ -48,7 +48,7 @@ mail server : 다수 사용자들의 메일 박스 관리, 메일 송/수신 제
 
 #### 프로토콜 동작 절차
 
-![[동작 절차.png|500]]
+![500](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SMTP%20/%20%EB%8F%99%EC%9E%91%20%EC%A0%88%EC%B0%A8.png)
 
 	1️⃣ 처음 TCP 연결 설정. 연결이 설정되면 서버와 클라이언트는 애플리케이션 계층 핸드쉐이크를 수행
 	2️⃣ 클라이언트가 송신자와 수신자의 전자 메일 주소를 제공
@@ -69,15 +69,15 @@ mail server : 다수 사용자들의 메일 박스 관리, 메일 송/수신 제
 
 [ASCII는 MIME을 이용해서 변환됨](https://ko.wikipedia.org/wiki/MIME)
 
-![[전달 과정 예.jpeg]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SMTP%20/%20%EC%A0%84%EB%8B%AC%20%EA%B3%BC%EC%A0%95%20%EC%98%88.jpeg)
 
 ### 메세지 포켓
 
-![[메세지 포켓.png|500]]
+![500](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SMTP%20/%20%EB%A9%94%EC%84%B8%EC%A7%80%20%ED%8F%AC%EC%BC%93.png)
 
 ### 명령어
 
-![[명령어 모음.png|500]]
+![500](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/SMTP%20/%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%AA%A8%EC%9D%8C.png)
 ### 참고
 https://blog.naver.com/eqelizer/20134840619
 https://nordvpn.com/ko/blog/smtp-protocol/

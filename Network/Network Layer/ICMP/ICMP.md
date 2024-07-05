@@ -15,12 +15,12 @@ ICMP(Internet Control Message Protocol), 인터넷 제어 메시지 프로토콜
 
 ---
 ### ICMP 계층의 위치
-![[Pasted image 20231111001911.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/ICMP%20/%20Pasted%20image%2020231111001911.png)
 ICMP는 IP 프로토콜의 상위 계층처럼 행동하지만, IP 계층에 포함되며 IP 데이터그램의 데이터 부분에 포함되어 전달된다.
 
 ---
 ### ICMP 메시지 포맷
-![[Pasted image 20231111001958.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/ICMP%20/%20Pasted%20image%2020231111001958.png)
 
 ---
 ### ICMP == 핑 ?

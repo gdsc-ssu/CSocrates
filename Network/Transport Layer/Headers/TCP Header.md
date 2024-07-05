@@ -9,7 +9,7 @@ https://rhyshan.com/278
 ### TCP Header
 TCP는 TCP Segment를 위한 헤더를 다음과 같이 정의하고 있다.
 
-![[Pasted image 20231202091256.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20Header%20/%20Pasted%20image%2020231202091256.png)
 - Source / Destination Port Number
 	- 16비트
 	- IP Datagram의 IP Address, TCP Segment의 Port Number를 합쳐서 Socket의 주소가 된다.
@@ -30,7 +30,7 @@ TCP는 TCP Segment를 위한 헤더를 다음과 같이 정의하고 있다.
 	- TCP 헤더는 최소 20바이트부터 60바이트 까지 가능하다.
 	- 따라서 동적으로 값이 들어갈 수 있기 때문에 설정해줘야한다.
 - Flag bits
-	![[Pasted image 20231202093516.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20Header%20/%20Pasted%20image%2020231202093516.png)
 	- 6개의 Flag Bit로 이루어져 있다.
 		- CWR (Congestion Window Reduced)
 			- 혼잡 제어 메커니즘에 응답했다는 의미
@@ -76,7 +76,7 @@ TCP 헤더의 길이는 20바이트에서 60바이트까지 가능하다.
 그 이유는 TCP 헤더에 옵션이 들어가는 경우, 크기가 달라지기 때문이다.
 
 **TCP Header Option Field**
-![[Pasted image 20231202091619.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20Header%20/%20Pasted%20image%2020231202091619.png)
 - EOL (End of Option)
 	- 1바이트
 	- 더 이상 처리할 옵션이 없음 (옵션 리스트의 끝)

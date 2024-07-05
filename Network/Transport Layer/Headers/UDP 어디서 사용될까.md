@@ -24,7 +24,7 @@ QUIC이란 Transport Layer Protocol으로서, 구글의 짐 로드킨드가 설�
 구글 크롬부터 구글 서버 등, 모든 연결의 절반 이상이 해당 프로토콜을 통해서 진행되고 있다.
 Edge, Firefox는 기본 설정이 아니지만, Safari, Chrome은 자동 설정이다.
 
-![[Pasted image 20231202102737.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/UDP%20%EC%96%B4%EB%94%94%EC%84%9C%20%EC%82%AC%EC%9A%A9%EB%90%A0%EA%B9%8C%20/%20Pasted%20image%2020231202102737.png)
 (출처 : https://musclebear.tistory.com/51)
 ### 사용되는 이유
 1. 빠른 핸드 쉐이크
@@ -32,12 +32,12 @@ UDP를 사용하여를 1 RTT로 변경하도록 설정
 TCP 연결 설정을 위해선 3-way handshake가 필요하고, 다시 TLS 연결도 시도해야한다.
 하지만 QUIC은 UDP 위에서 동작함으로 TLS 포함 연결 설정까지 1 RTT 안에 가능하다.
 또한 이전에 연결이 이루어졌다면 캐싱된 데이터를 기반으로 바로 TLS 연결이 설정할 수 있다. (연결 요청 없이도)
-![[Pasted image 20231202102049.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/UDP%20%EC%96%B4%EB%94%94%EC%84%9C%20%EC%82%AC%EC%9A%A9%EB%90%A0%EA%B9%8C%20/%20Pasted%20image%2020231202102049.png)
 
 2. 보안성 향상
 TCP는 헤더 정보가 모두 노출됨에 따라 다양한 데이터들이 보안 처리가 되어 있지 않은 상태로 전송되게 된다. (TLS 또한 TCP 위에서 동작함에 따라서 TLS 자체도 100% 보안처리 할 수 없다.)
 하지만 QUIC은 헤더 자체도 보안이 됨에 따라서 더 높은 보안 수준을 처리할 수 있다.
-![[Pasted image 20231202102923.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/UDP%20%EC%96%B4%EB%94%94%EC%84%9C%20%EC%82%AC%EC%9A%A9%EB%90%A0%EA%B9%8C%20/%20Pasted%20image%2020231202102923.png)
 
 3. HoL 차단 개선
 HoL은 Head of Line 약자이다.
@@ -45,10 +45,10 @@ HoL은 Head of Line 약자이다.
 스트림의 데이터가 손실되면 손실된 데이터가 재전송될 때까지 그 뒤에 있는 다른 스트림의 데이터가 차단되며 수신 측에서 이미 후속 스트림의 데이터 패킷을 수신한 경우에도 애플리케이션 계층에 알리지 않는다.
 
 기존 TCP 방식
-![[Pasted image 20231202103355.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/UDP%20%EC%96%B4%EB%94%94%EC%84%9C%20%EC%82%AC%EC%9A%A9%EB%90%A0%EA%B9%8C%20/%20Pasted%20image%2020231202103355.png)
 
 다중 스트림을 통한 HoL 개선을 하였다.
-![[Pasted image 20231202103420.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/UDP%20%EC%96%B4%EB%94%94%EC%84%9C%20%EC%82%AC%EC%9A%A9%EB%90%A0%EA%B9%8C%20/%20Pasted%20image%2020231202103420.png)
 또한 기존 TCP 위에서 동작하는 것을 때문에 새로운 프로토콜을 올리기에는 라우터나 기존 장비들을 업데이트하는데 큰 비용이 들지만, QUIC의 경우 UDP 위에서 동작하기 때문에 새로운 프로토콜이나 방식을 도입하는데 큰 비용이 들지 않는다.
 
 #### QUIC의 장점
