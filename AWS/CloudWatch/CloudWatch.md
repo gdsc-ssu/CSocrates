@@ -180,6 +180,10 @@ CloudWatch 경보를 통해 이벤트를 발생시켜 개발자의 개입을 최
 	- 트래픽이 거의 없는 밤에 서버의 성능을 자동으로 낮출 수 있다면 얼마나 좋을까?
 	- CloudWatch 경보 기능을 활용하면 서버 트래픽이 특정 임계점에 도달했을 때 개발자에게 알람을알려주고, 성능을 자동으로 낮출수 있음
 
+[AWS 서비스별 권장 경보](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/Best_Practice_Recommended_Alarms_AWS_Services.html#DynamoDB)
+[CloudWathch 알람을 통해 slack에 연결하여 자동화 구성](https://tech.cloudmt.co.kr/2022/07/13/cloudwatch-process-monitoring/)
+
+- **모니터링**을 통해 자동화를 이루고자 할 때 CloudWatch 알람을 이용해 해결할 수 있음!
 
 ### CloudWatch 실습
 
@@ -425,7 +429,10 @@ EC2 부하 테스트를 위해 stress 툴을 설치해서 이미지와 템플릿
 
 ![[Pasted image 20240629200339.png]]
 
+EC2 인스턴스의 메모리와 CPU 사용량을 그림으로 확인할 수 있게됨
+
 
 ### reference
+
 https://www.youtube.com/watch?v=0vg9nxohKzo
-AWS 입문
+https://www.youtube.com/watch?v=Owl6njL7ViQ&t=746s
