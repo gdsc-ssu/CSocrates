@@ -10,14 +10,14 @@ ___
 * [[#정리]]
 ___
 ### TCP는 어디서 처리할까?
-![[Pasted image 20231117224311.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%EB%8A%94%20%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%20%EC%B2%98%EB%A6%AC%ED%95%9C%EB%8B%A4%20/%20Pasted%20image%2020231117224311.png)
 <span class="red-bg"><b>tcp는 커널에서 처리하며 커널 내부에 위치한 코드로 구현된다.</b></span> 따라서 데이터가 소켓을 거치는 순간 해당 데이터는 커널의 주관이 되며 운영체제가 자체적으로 처리하게 된다.
 >[!info]
 >TCP는 커널에서 처리한다.
 
 ___
 ### TCP Send in OS
-![[Pasted image 20231117224554.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%EB%8A%94%20%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%20%EC%B2%98%EB%A6%AC%ED%95%9C%EB%8B%A4%20/%20Pasted%20image%2020231117224554.png)
 유저 영역에 위치한 **애플리케이션은 write 시스템 콜을 호출해 데이터를 아래 계층으로 내보낸다.** 시스템 콜을 통해 영역은 유저 영역에서 커널 영역으로 전환된다.
 
 소켓은 송신과 수신을 위한 두개의 버퍼를 가지고 있다. 이때 **write 시스템 콜을 애플리케이션이 호출하면, 송신용 send_buffer에 유저 영역의 데이터가 복사된다. 이 다음 tcp를 커널로 부터 호출해 버퍼에 복사한 데이터를 처리한다.**
@@ -29,7 +29,7 @@ ___
 **User → System_call → Socket → Kernel → TCP → IP → Ethernet → NIC**
 ____
 ### TCP Receive in OS
-![[Pasted image 20231117224804.png]]수신은 송신의 과정이 반대로 발생한다. 우선 NIC가 패킷을 자신의 메모리에 저장한다. 만약 패킷이 유용하다면 해당 패킷은 호스트의 메인 메모리로 복사된다. 이후 NIC 드라이버는 패킷을 운영체제가 이해할 수 있는 형태로 패키징하고 이를 상위 레이어로 전달한다. 이더넷 레이어에서 이더넷 헤더를 제거하고 IP 레이어로 패킷을 전달한다.
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%EB%8A%94%20%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%20%EC%B2%98%EB%A6%AC%ED%95%9C%EB%8B%A4%20/%20Pasted%20image%2020231117224804.png)
 
 IP레이어도 마찬가지로 패킷을 검증하고 헤더를 제거한 후 TCP 레이어로 전달한다. TCP 레이어로 전달되면 패킷이 속하는 연결을 찾는다. 즉 데이터를 수신해야하는 대상을 탐색하는 작업을 수행한다. 이때 **대상을 찾는 식별자는 *<소스 IP, 소스 port, 타깃 IP, 타깃 port>*가 되며 이는 소켓의 식별자와 동일**하다.
 

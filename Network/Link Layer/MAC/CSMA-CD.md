@@ -8,4 +8,4 @@ csma/Collision Detection
 - 매체가 비어 있으면 노드에서 바로 전송 시작
 - 만약 충돌을 발견했을 경우 랜덤 백오프 시간동안 기다렸다가 전송
 
-![[images-inyong_pang-post-5ee92b7b-a5bf-4383-a19a-bf4afc5b6b83-image 1.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/CSMA-CD%20/%20images-inyong_pang-post-5ee92b7b-a5bf-4383-a19a-bf4afc5b6b83-image%201.png)

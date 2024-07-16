@@ -5,7 +5,7 @@
    여기서 연결된 장비가 더 많아진다면 ARP를 위한 Broadcast가 점점 늘어날 것이고, 브로드캐스트를 처리하느라 정상적인 수행이 불가능할 것이다.
 2. Subnet Mask가 다른 여러 개의 IP 대역을 사용해야한다면 어떻게 해야할까?
    공유기를 여러개 설치해야할까? 그렇다면 새로운 IP 대역이 추가되면 추가적으로 작업해야할까?
-   ![[Pasted image 20231111010902.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/VLAN%20/%20Pasted%20image%2020231111010902.png)
 
 ---
 ## VLAN이란?
@@ -15,7 +15,7 @@ VLAN을 통해 브로드캐스트 도메인을 분리할 수 있습니다.
 분리된 각 VLAN끼리는 통신하기 위해선 L3 이상의 스위치 혹은 라우터를 통해서만 가능하다.
 또한 VLAN ID를 1~4096까지의 번호를 사용해서 구분할 수 있다.
 
-![[Pasted image 20231111005216.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/VLAN%20/%20Pasted%20image%2020231111005216.png)
 결과적으로 VLAN을 사용하면 해당하는 VLAN 내의 호스트들에게만 브로드캐스트를 진행할 수 있다.
 예시로 사진에서 VLAN10과 VLAN20으로 나뉘어 있는 것을 볼 수 있다.
 PC2와 PC3는 서로 같은 VLAN으로 연결되어 직접 통신이 가능하다. 하지만 서로 다른 VLAN에 존재하는 

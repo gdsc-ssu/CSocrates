@@ -20,10 +20,10 @@ Go Back N이란 receiver 측에서 순서대로 받지 못한 패킷이 있다�
 	- 해당 타이머가 만료될 때까지 ACK가 오지 않는다면, Window의 ACK가 되지 않은 모든 패킷들을 재전송한다.
 #### 예제 1
 Sender의 패킷이 없어지는 경우
-![[Pasted image 20231118000520.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/Packet%20Pipelining%20/%20Pasted%20image%2020231118000520.png)
 #### 예제 2
 ACK가 사라지는 경우
-![[Pasted image 20231118000540.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/Packet%20Pipelining%20/%20Pasted%20image%2020231118000540.png)
 #### Window Size별 오류 발생 가능성
 ![[Notes_231118_003541_b5b.jpg]]
 ![[Notes_231118_003633_e43.jpg]]
@@ -39,10 +39,10 @@ Sender의 Window Size는
 	- 타이머가 만료될 때까지 ACK가 도착하지 않는다면, 각 패킷을 재전송한다.
 #### 예시1
 Sender의 패킷이 없어지는 경우
-![[Pasted image 20231118000914.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/Packet%20Pipelining%20/%20Pasted%20image%2020231118000914.png)
 
 #### Window Size별 오류 발생 가능성
-![[Notes_231118_002709_57c.jpg]]![[Notes_231118_002815_b94.jpg]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/Packet%20Pipelining%20/%20Notes_231118_002815_b94.jpg)
 
 ### Reference
 https://velog.io/@dltmdrl1244/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-3-3.-Packet-pipelining-GBN-SR

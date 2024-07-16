@@ -14,7 +14,7 @@ Open Systems Interconnection
 https://standards.iso.org/ittf/PubliclyAvailableStandards/s020269_ISO_IEC_7498-1_1994(E).zip
 
 위 문서는 1994년 출간된 7498-1 개정판. (7498-1은 파트 1을 의미하며, 파트 1은 The Basic Model, 파트 2는 Security Architecture, 파트 3은 Naming and addressing, 파트 4는 Management framework 라는 이름을 갖고 있다.)
-![[OSI7Layer.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/OSI%207%20Layer%2C%20TCP%20IP%20Model%20/%20OSI7Layer.png)
 (해당 문서에서 캡쳐한 OSI 7 Layer)
 
 여담 : 문서가 생각보다 매우매우 복잡하다. 시스템간 OSI 7 레이어를 전부 정의해뒀는데 어지럽다. 위 그림은 문서 중반에 처음 등장한다.. 위에는 계층을 나눌 필요성에 대해 설명하고, 그 다음엔 어떤 레이어가 있는지 상세하게 설명한다.

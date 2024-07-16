@@ -7,7 +7,7 @@
 - LLC 계층은 두 장비간의 링크를 설정하고, 프레임을 송수신하는 방식과 상위 레이어 프로토콜의 종류를 알리는 역할
 
 - LLC 프레임의 구조
-![[스크린샷 2023-10-10 오후 8.01.18.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/LLC%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-10-10%20%EC%98%A4%ED%9B%84%208.01.18.png)
 
 DSAP는 Destination Service acees point의 줄인말로 목적지 주소 즉 3계층 세부정보를 나타낸다.
 SSAP는 Source service access point로 end point라고도 부르며 출발지 3계층 주소를 나타낸다.
