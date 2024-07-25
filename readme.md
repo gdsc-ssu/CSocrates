@@ -1,4 +1,4 @@
-
+<img src="https://private-user-images.githubusercontent.com/21211957/352028023-89927342-99b4-45ae-a447-e8bce86ac7a8.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE4OTY5NjksIm5iZiI6MTcyMTg5NjY2OSwicGF0aCI6Ii8yMTIxMTk1Ny8zNTIwMjgwMjMtODk5MjczNDItOTliNC00NWFlLWE0NDctZThiY2U4NmFjN2E4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzI1VDA4Mzc0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIzYWMzMWQ1YWZhYWU1YTliYmRhNTcyM2M4M2QwZmNkNDkwMGQ1MGQ1NTJjZjljMTEzMDg0NzBlNGZiNDkxMDUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0._YcvYyKechOwFj4VxJvZpx2QZhju0uAje99KY1sP5a0"/>
 # 소크라테스 문답법
 [소크라테스식 문답법](https://ko.wikipedia.org/wiki/%EB%AC%B8%EB%8B%B5%EB%B2%95)을 통해 Computer Science에 대한 지식을 늘려나가는 스터디입니다.
 모든 지식에 대해서 항상 "무엇을", "어떻게", "왜"라는 질문에 대답할 수 있어야하며, 자신이 모르는 것과 자신이 아는 것을 명확하게 구분하기 위해서 심도 깊은 질문을 주고 받습니다.
