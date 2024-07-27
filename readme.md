@@ -1,4 +1,4 @@
-![a](https://github.com/user-attachments/assets/0d606bdd-ed22-45d8-9e5f-d973265c9b43)
+<img src="https://github.com/user-attachments/assets/8310cb2e-4c80-4f9c-aa0a-8390c557f0ea">
 
 # 소크라테스 문답법
 [소크라테스식 문답법](https://ko.wikipedia.org/wiki/%EB%AC%B8%EB%8B%B5%EB%B2%95)을 통해 Computer Science에 대한 지식을 늘려나가는 스터디입니다.
