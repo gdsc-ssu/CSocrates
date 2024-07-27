@@ -42,7 +42,7 @@ jobs:
   
     - name: Process Markdown files
       run: |
-        obs3dian run . --overwrite --usekey
+        obs3dian run . --overwrite
 
     - name: Commit changes
       run: |
