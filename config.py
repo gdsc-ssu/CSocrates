@@ -27,3 +27,5 @@ def save_config(json_data: dict):
     config_path = app_dir_path / SETUP_FILE_NAME
     with config_path.open("w") as f:
         json.dump(json_data, f)  # write config.json
+
+    print(f"save config file in {config_path}")
