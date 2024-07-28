@@ -15,7 +15,7 @@ def save_config():
         "profile_name": "default",
         "aws_access_key": aws_access_key_id,
         "aws_secret_key": aws_secret_access_key,
-        "bucket_name": "obs3dian",
+        "bucket_name": "csocrates-s3",
         "output_folder_path": "./output",
         "image_folder_path": "./",
     }
