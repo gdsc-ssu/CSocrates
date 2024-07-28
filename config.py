@@ -1,14 +1,13 @@
 import json
 import os
 from pathlib import Path
-import typer
 
 APP_NAME = "obs3dian"
 SETUP_FILE_NAME = "config.json"
-APP_DIR_PATH = typer.get_app_dir(APP_NAME)
+APP_DIR_PATH = "/home/runner/.config/obs3dian"
 
 
-def save_config(json_data: dict):
+def save_config():
     app_dir_path = Path(APP_DIR_PATH)  # create app setting folder
     aws_access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
     aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
@@ -29,3 +28,7 @@ def save_config(json_data: dict):
         json.dump(json_data, f)  # write config.json
 
     print(f"save config file in {config_path}")
+
+
+if __name__ == "__main__":
+    save_config()
