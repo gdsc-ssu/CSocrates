@@ -23,6 +23,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install obs3dian
     
+    - name: Run Python script
+      env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+          python3 config.py
+        
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -33,7 +40,7 @@ jobs:
   
     - name: Process Markdown files
       run: |
-        obs3dian run . --overwrite --usekey  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        obs3dian run . --overwrite
 
     - name: Commit changes
       run: |
