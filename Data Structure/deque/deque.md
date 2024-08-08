@@ -6,11 +6,11 @@
 
 > 선형 구조(Linear Structure)
 > - 데이터를 저장하기 위한 기본적인 형태로 데이터가 **일렬로 나열**되어 있을 뿐만 아니라 데이터 간에 순서가 있고 논리적으로 이어져 있는 구조를 의미
-![[Pasted image 20240202121115.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/deque%20/%20Pasted%20image%2020240202121115.png)
 
 
 ### 동작흐름
-![[Pasted image 20240202120723.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/deque%20/%20Pasted%20image%2020240202120723.png)
 - 입력과 출력이 양방향 가능
 	- 데이터 입력 순서와 상관없이 출력 순서 조절 가능
 - 큐의 선입선출과 스택의 후입선출의 개념을 복합적으로 사용할 수 있다.
@@ -173,4 +173,4 @@ print(max_sliding_window(nums, k))  # [3, 3, 5, 5, 6, 7]
 #### 파이썬에서의 덱과 리스트의 차이
 - 덱의 경우에는 양쪽 끝의 요소를 제거하는 것 모두 O(1), 
 - 하지만 리스트의 경우에는 제일 앞부분을 제거하면 뒤에있는 원소들을 앞으로 땡겨오는 작업을 하므로 O(n)이다.
-![[스크린샷 2024-02-02 오후 12.27.22.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/deque%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-02-02%20%EC%98%A4%ED%9B%84%2012.27.22.png)

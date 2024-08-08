@@ -3,7 +3,7 @@
 - aws를 사용하기 위해서 알아야할 정보들
 - 제일 처음 aws를 사용하기 위해서 이해해야 되는 개념들이다.
 
-![[스크린샷 2024-06-10 11.10.08.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Amazon%20VPC%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%B4%20%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B9%97%20%EA%B0%80%EC%83%81%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%83%9D%EC%84%B1%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-06-10%2011.10.08.png)
 
 ## VPC (Virtual Private Cloud)
 
@@ -48,7 +48,7 @@ VPC_ID=$(aws ec2 create-vpc --cidr-block 10.10.0.0/16 \
 aws ec2 describe-vpcs --vpc-ids $VPC_ID
 ```
 
-![[스크린샷 2024-06-14 오후 6.25.04.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Amazon%20VPC%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%B4%20%ED%94%84%EB%9D%BC%EC%9D%B4%EB%B9%97%20%EA%B0%80%EC%83%81%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%83%9D%EC%84%B1%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-06-14%20%EC%98%A4%ED%9B%84%206.25.04.png)
 
 
 ## Reference
