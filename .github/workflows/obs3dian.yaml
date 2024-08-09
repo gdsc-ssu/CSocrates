@@ -1,0 +1,59 @@
+name: Process Markdown Files with Obs3dian
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.md'
+
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install obs3dian
+      
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    
+    - name: Run Python script
+      env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+          python3 config.py
+  
+    - name: Process Markdown files
+      run: |
+        obs3dian apply --usekey
+        obs3dian run . --overwrite --usekey
+
+    - name: Commit changes
+      run: |
+        git config --global user.name 'thinkjin99'
+        git config --global user.email 'mjin1789@gmail.com'
+        git add .
+        git commit -m "Processed Markdown files using obs3dian" || echo "No changes to commit"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main

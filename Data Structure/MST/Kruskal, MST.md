@@ -8,7 +8,7 @@
 - 가중치가 최소인 정점부터 MST에 포함시키기 때문에 그리디한 방식으로 볼 수 있다. 
 
 
-![[Kruskal 1.gif]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Kruskal%2C%20MST%20/%20Kruskal%201.gif)
 
 #### 원리
 - **간선 정렬** 
@@ -106,7 +106,7 @@ for u, v, weight in mst:
 - 시작 정점에서부터 출발하여, MST를 점진적으로 확장해 나간다. 
 - 하나의 정점에서 인접한 간선들 중에서 가장 가중치가 낮은 간선을 선택하고 이 간선을 통해 연결되는 새로운 정점을 트리에 추가한다. 
 
-![[Prim-animation.gif]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Kruskal%2C%20MST%20/%20Prim-animation.gif)
 
 #### 활용
 - Kruskal에서 살펴보았던 활용 예와 같다. (Kruskal이 MST를 만드는 알고리즘이기 때문) 

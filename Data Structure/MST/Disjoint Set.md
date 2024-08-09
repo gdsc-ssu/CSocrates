@@ -10,12 +10,12 @@
 1. **MakeSet(x)** : 원소 x만을 포함하는 새로운 집합을 생성한다. 초기에는 각 원소가 자신만을 포함하는 집합의 대표로 설정이 된다. 
 2. **Find(x)** : 원소 x가 속한 집합의 대표를 찾는다. 
 	- 대표를 왜 찾아? -> 대표가 집합을 식별하는데 사용되기 때문
-		![[Pasted image 20240306164804.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Disjoint%20Set%20/%20Pasted%20image%2020240306164804.png)
 		
 3. **Union(x, y)**: 두 원소 x와 y가 포함된 집합을 합친다. 
 	1. 두 집합의 대표를 찾는다. 
 	2. 한 대표를 다른 대표에 연결하여 두 집합을 하나로 합치는 과정을 포함한다. 
-		![[Pasted image 20240306165121.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Disjoint%20Set%20/%20Pasted%20image%2020240306165121.png)
 
 #### 최적화 기법
 - 위 그림처럼 Union을 하는 과정에서 선형 트리가 생겨버릴 수도 있다. 
@@ -23,12 +23,12 @@
 
 **경로 압축(Path Compression)**
 Find 연산을 수행하면서 만나는 모든 노드가 직접 대표를 가리키도록 만든다. 
-![[Pasted image 20240306165652.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Disjoint%20Set%20/%20Pasted%20image%2020240306165652.png)
 
 **랭크 기반 합치기(Union by Rank)**
 - 두 트리를 합칠 때, 더 낮은 랭크를 가진 트리를 더 높은 랭크를 가진 트리 밑에 붙인다. 
 - 트리의 높이나 사이즈를 저장할 rank 배열 사용
-	![[Pasted image 20240306165955.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Disjoint%20Set%20/%20Pasted%20image%2020240306165955.png)
 
 **크기 기반 합치기(Union by Size)**
 - 랭크 대신 트리의 노드 수(크기)를 기준으로 Union을 수행한다. 

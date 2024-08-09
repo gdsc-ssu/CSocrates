@@ -6,7 +6,7 @@
 - 해시맵에서의 핵심 원리.
 - "해싱 함수"를 통해서 키 값을 "해시코드"로 변환. -> 그 해시코드를 기준으로 데이터를 저장한다.
 
-![[Pasted image 20240324021137.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/hashmap%20/%20Pasted%20image%2020240324021137.png)
 
 
 ### 특징
@@ -25,7 +25,7 @@
 ### 해시충돌
 - 해시맵에서 해시 충돌이란, 두 개 이상의 키가 동일한 해시값을 가지게 되면 일어난다
 - 해결 방법으로는 Open Addressing 방식과 Chaining 방식이 있다.
-![[Pasted image 20240324024328.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/hashmap%20/%20Pasted%20image%2020240324024328.png)
 
 open addressing
 - 찾은 해시값의 버킷이 이미 사용중인 경우 비어있는 다른 해시 버킷에 데이터를 삽입하는 방식

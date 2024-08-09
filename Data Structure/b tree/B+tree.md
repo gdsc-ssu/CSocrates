@@ -34,27 +34,27 @@ DB index 같은 경우에 B-tree보다 B+tree 형태를 많이 사용한다. (le
 해당 node의 가장 앞이 아닌 곳에 삽입되는 경우는 단순히 삽입해 주면 된다.
 > 하지만, leaf node의 가장 앞에 삽입되는 경우는, 해당 node를 가리키는 부모 node의 포인터의 오른쪽에 위치한 key를 K로 바꿔준다. 그리고 leaf node끼리 Linked list로 이어줘야 하므로 삽입된 key에 Linked list로 연결한다.
 
-![[Pasted image 20240309101737.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Btree%20/%20Pasted%20image%2020240309101737.png)
 
 -  **key의 수가 최대인 leaf node에 삽입하는 경우**
 key의 수가 최대이므로 삽입하는 경우 분할을 해주어야 한다. 만약 중간 node에서 분할이 일어나는 경우는 B-Tree와 동일하게 해주면 된다.
 > leaf node에서 분할이 일어나는 경우는 중간 key를 부모 node로 올려주는데 이때, 오른쪽 node에 중간 key를 붙여 분할한다. 그리고 분할된 두 node를 Linked List로 연결해준다.
 
-![[Pasted image 20240309101925.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Btree%20/%20Pasted%20image%2020240309101925.png)
 #### 삭제
 - **삭제할 key가 leaf node의 가장 앞에 있지 않은 경우**
 B-tree와 동일한 방식으로 삭제
 - **삭제할 key가 leaf node의 가장 앞에 위치한 경우**
 leaf node가 아닌 node에 key가 중복해서 존재한다. 따라서 해당 key를 노드보다 오른쪽에 있으면서 가장 작은 값으로 바꿔주어야 한다.
-![[Pasted image 20240309102030.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Btree%20/%20Pasted%20image%2020240309102030.png)
 
 #### 검색
 구현하는 방식에 따라 다르겠지만, leaf 노드가 아닌 노드는 자신의 값이 자신의 오른쪽 자식의 가장 왼쪽 키 보다 크거나 같은 값으로 구성되어 있는 기준을 잘 보고 따라가면 된다.
 단, 무조건 leaf 노드까지 도달해야 해당 값이 존재하는지 파악할 수 있기에 모든 값에 대해서 빠른 접근을 보장하지는 않는다.
 예시) 14를 탐색하는 상황
-![[Pasted image 20240309102304.png]]
-![[Pasted image 20240309102309.png]]
-![[Pasted image 20240309102332.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Btree%20/%20Pasted%20image%2020240309102304.png)
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Btree%20/%20Pasted%20image%2020240309102309.png)
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Btree%20/%20Pasted%20image%2020240309102332.png)
 
 결과적으로 구조가 변경되는 것을 최소화하기 위해서 작동한다. (숫자가 변경되는건 작은 변화, 트리의 구조가 변경되는건 큰 변화이기 때문에)
 
@@ -62,7 +62,7 @@ leaf node가 아닌 node에 key가 중복해서 존재한다. 따라서 해당 k
 ## B-tree VS B+tree
 가장 큰 차이점은 B+tree는 leaf 노드가 아닌 경우에는 leaf 노드로 가기 위한 경로를 안내할 뿐, 그것이 데이터를 저장하는 값이 아니라는 것입니다.
 이러한 특징 때문에 업데이트가 발생할 시, non-leaf 노드들의 값이 쉽게 변화할 가능성이 있습니다.
-![[Pasted image 20240309090824.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Btree%20/%20Pasted%20image%2020240309090824.png)
 
 ## 참고사항
 #### Visualization

@@ -24,7 +24,7 @@ data의 타입은 원하는 타입으로 지정한다.
 마지막 node의 next 값은 NULL 혹은 HEAD의 메모리 주소로 설정한다.
 ## 과정
 #### 추가
-![[스크린샷 2024-02-16 오후 5.47.14.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Single%20Linked%20List%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-02-16%20%EC%98%A4%ED%9B%84%205.47.14.png)
 - 데이터를 추가하는 방법은 2가지가 있다.
 	1. 리스트의 맨 마지막에 추가하기
 	2. 리스트의 맨 앞에 추가하기
@@ -43,4 +43,4 @@ data의 타입은 원하는 타입으로 지정한다.
 3. prev의 next 값을 current의 next 값으로 한다면, 다음 탐색부터는 current가 가리키는 데이터는 탐색할 수 없다.
 4. current로 저장된 노드를 메모리 해제해준다.
 
-![[스크린샷 2024-02-16 오후 5.48.33.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Single%20Linked%20List%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-02-16%20%EC%98%A4%ED%9B%84%205.48.33.png)

@@ -21,8 +21,8 @@ B-tree의 단점은 구조를 유지하기 위해서 추가적인 연산이 수�
 
 ## 내부 연산
 #### 삽입
-![[Pasted image 20240309094235.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Atree%20/%20Pasted%20image%2020240309094235.png)
 24 추가 시, 오버플로우 발생
 원래는 split이 발생됨
 하지만 B\*tree는 그대로 유지 후, 형제에게 분배
-![[Pasted image 20240309110202.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/B%2Atree%20/%20Pasted%20image%2020240309110202.png)
