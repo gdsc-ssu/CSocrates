@@ -223,17 +223,108 @@ AWS에서는 가급적이면 쿼리를 사용하라고 권장하지만 참고용
 - https://alphahackerhan.tistory.com/39
 - https://gyoogle.dev/blog/computer-science/data-base/SQL%20&%20NOSQL.html
 - https://velog.io/@rik963/Database-RDBMS-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%84%A4%EA%B3%84
+- https://velog.io/@park2348190/%EB%85%BC%EB%AC%B8%EB%B2%88%EC%97%AD-SQL-vs-NoSQL-A-Performance-Comparison
 
+---
 
 ### 추가
 
-- 스캔의 장점
-	- 스캔 그래서 언제 사용하는데?
+##### 스캔의 실사용 예시
 
-- LSI, GSI 차이
-	왜 LSI는 변경 수정 삭제 안댐?
+**1. 테이블의 특정 속성 값을 기반으로 데이터 검색**
 
-- SQL, NOSQL 사용 예시
+- 예를 들어, 사용자의 주문 내역을 저장하는 테이블이 있다고 가정해 보면 이 테이블의 파티션 키는 `user_id`이고, 정렬 키는 `order_id`임. 하지만 특정 날짜에 이루어진 모든 주문을 검색하고 싶다면, 이 날짜는 파티션 키나 정렬 키가 아니기 때문에 쿼리로는 직접 검색할 수 없음
 
-- 진짜 NOSQL 빠르냐
-	- 퍼포먼스 측정
+```python
+import boto3
+
+# DynamoDB 클라이언트 생성
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('Orders')
+
+# 스캔을 사용하여 특정 날짜의 주문을 검색
+response = table.scan(
+    FilterExpression="order_date = :order_date_value",
+    ExpressionAttributeValues={":order_date_value": "2024-08-14"}
+)
+
+# 결과 출력
+items = response['Items']
+for item in items:
+    print(item)
+
+```
+
+이 예시에서 `order_date` 필드가 특정 날짜(`2024-08-14`)와 일치하는 모든 주문을 검색함
+스캔은 테이블의 모든 항목을 검색하고, 필터 조건을 적용하여 결과를 반환함
+
+**2. 모든 항목에서 특정 속성이 없는 항목 찾기**
+
+- 예를 들어, 사용자 프로필이 저장된 테이블이 있는데, 이 테이블에는 일부 사용자 프로필에 `email` 필드가 없을 수 있음 `email` 필드가 없는 모든 항목을 찾기 위해 스캔을 사용할 수 있음
+
+```python
+response = table.scan(
+    FilterExpression="attribute_not_exists(email)"
+)
+
+items = response['Items']
+for item in items:
+    print(item)
+
+```
+
+이 예시에서는 `email` 필드가 없는 모든 항목을 검색함 `attribute_not_exists` 함수는 특정 속성이 없는 항목을 필터링하는 데 사용됨
+
+**3. 모든 데이터를 가져와서 로컬에서 처리할 때**
+
+- 테이블에 데이터가 많지 않거나, 특정 필드를 기반으로 통계나 보고서를 작성하려고 하는 경우 전체 데이터를 가져와서 로컬에서 처리할 수 있음
+
+```python
+response = table.scan()
+
+items = response['Items']
+for item in items:
+    # 데이터 처리 (예: 특정 필드의 값 누적 등)
+    print(item)
+
+```
+
+**4. 기타 복잡한 조건을 만족하는 데이터 검색**
+
+- 특정 조건들이 조합된 복잡한 필터링을 적용해야 하는 경우, 여러 필드의 값을 결합하여 특정 조건에 맞는 데이터를 찾을 수 있음
+
+```python
+response = table.scan(
+    FilterExpression="attribute_exists(phone) AND begins_with(name, :prefix)",
+    ExpressionAttributeValues={":prefix": "John"}
+)
+
+items = response['Items']
+for item in items:
+    print(item)
+
+```
+
+이 예시에서는 `phone` 필드가 존재하고, `name` 필드가 "John"으로 시작하는 모든 항목을 검색함
+
+(GPT 피셜)
+
+##### 왜 LSI는 변경, 수정, 삭제가 안되는지?
+
+LSI는 DynamoDB의 기본 테이블과 밀접하게 통합된 구조로 인해 생성 이후에는 변경, 수정, 삭제가 불가능함. 
+이는 데이터 일관성, 성능, 안정성을 유지하기 위한 아키텍처적 설계 결정이며, 이러한 제약을 통해 DynamoDB는 대규모 데이터베이스에서도 신뢰할 수 있는 성능을 제공하게됨
+
+##### SQL vs NOSQL 사용 예시
+
+- **SQL**은 **정형화된 데이터**와 **복잡한 관계**를 효율적으로 관리하고, **정교한 쿼리**가 필요한 상황에서 유용함. 예를 들어, 전자상거래 시스템에서 주문, 고객, 제품 간의 복잡한 관계를 관리할 때 SQL이 적합함
+- **NoSQL**은 **비정형 데이터**나 **대규모 데이터**를 빠르게 처리해야 하는 상황에서 유용함. 예를 들어, 소셜 미디어 플랫폼에서 유연한 데이터 구조와 빠른 성능이 필요할 때 NoSQL이 적합함
+
+##### 진짜 NOSQL 빠른지?
+
+퍼포먼스 비교 측면에서 SQl과 NOSQL을 비교해보면... 
+실제로 측정하진 못했지만 위 [논문](https://www.cs.rochester.edu/courses/261/fall2017/termpaper/submissions/06/Paper.pdf)을 확인해 보면 명확한 퍼포먼스 비교가 가능함
+
+![[Pasted image 20240814162614.png|500]]
+
+가장 많이 사용하는 관계형 데이터베이스인 MySQL과 Key-value NoSQL인 BerkeleyDB, Document NoSQL인 MongoDB에 대하여 실험을 진행한 것으로 읽기 연산에는 NoSQL이 전반적으로 3배 이상 빠른것을 볼 수 있음
+
