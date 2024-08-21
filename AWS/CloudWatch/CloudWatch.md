@@ -5,13 +5,13 @@
 
 		※ 이벤트란 일련의 사 건을 의미하며 예를 들면 S3 버컷에 파일을 업로드 (puT), 혹은 수정 (UPDATE)할 때 ‘이벤트가 발생했다’고 표현할 수 있음. 뿐만 아니라 암호화되지 않은 파일을 업로드할 때 접근 거부 에러 메시지가 뜨는 상황 역시 이벤트라 할 수 있음
 
-![[Pasted image 20240629105506.png|400]]
+![400](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629105506.png)
 
 **Public 서비스**
 	인터넷을 통해 접근하거나 Interface Endpoint로 접근 가능
 
-![[Pasted image 20240629110036.png|500]]
-![[Pasted image 20240629113721.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629110036.png)
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629113721.png)
 
 **로그, 지표, 이벤트 등의 운영데이터를 수집하여 시각화 및 처리**
 	경보 생성을 통해 자동화된 대응 가능
@@ -31,7 +31,7 @@
 
 ### 주요 기능
 
-![[Pasted image 20240629124325.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629124325.png)
 
 - 지표 수집
 	- 시간 순서별 데이터 요소의 집합
@@ -121,11 +121,11 @@
 			- 이런식으로 조건을 걸어서 지표 확인 가능
 
 
-![[Pasted image 20240629131935.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629131935.png)
 (빨간 점이 데이터 포인트)
 
 
-![[Pasted image 20240629132344.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629132344.png)
 직접 커스텀 지표를 만든 경우 -> EC2 메모리 사용량을 알기 위한 지표
 
 커스텀 지표도 기본 지표와 동일하게 데이터 포인트가 업데이트 됨
@@ -164,7 +164,7 @@ CloudWatch 경보를 통해 이벤트를 발생시켜 개발자의 개입을 최
 - high resolution이라면 60초 미만 주기로 평가 가능
 - 이외에는 모두 60초의 배수 단위로 평가
 
-![[Pasted image 20240629133303.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629133303.png)
 
 
 ### CloudWatch 사용 사례
@@ -191,11 +191,11 @@ CloudWatch 경보를 통해 이벤트를 발생시켜 개발자의 개입을 최
 
 먼저 EC2에 적용할 역할 생성
 
-![[Pasted image 20240629192437.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629192437.png)
 
 그 후, EC2 생성
 
-![[Pasted image 20240629193921.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629193921.png)
 
 IAM 인스턴스 프로파일에 위에서 생성한 역할을 적용하면 됨
 
@@ -203,15 +203,15 @@ IAM 인스턴스 프로파일에 위에서 생성한 역할을 적용하면 됨
 
 System Manager -> 명령 실행에서 아래 명령을 실행함
 
-![[Pasted image 20240629194155.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629194155.png)
 
 이름과 인스턴스를 선택해줌
 
-![[Pasted image 20240629194331.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629194331.png)
 
 그 후 파라미터 생성
 
-![[Pasted image 20240629194513.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629194513.png)
 
 값란에 다음 코드 입력
 ```json
@@ -413,21 +413,21 @@ System Manager -> 명령 실행에서 아래 명령을 실행함
 
 또 다른 명령 실행
 
-![[Pasted image 20240629194718.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629194718.png)
 
-![[Pasted image 20240629195214.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629195214.png)
 
 configure location에 이전에 만들었던 파라미터 이름을 사용
 
 여기서 CloudWatch -> EC2 리소스 상태를 가보면 리소스 상태를 확인할 수 있음
 
-![[Pasted image 20240629195626.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629195626.png)
 
 메모리 사용은 아직 확인할 수 없는데, 아직 CW Agent에서 메모리 값을 주지 않아서 그럼(5분마다 확인 가능)
 
 EC2 부하 테스트를 위해 stress 툴을 설치해서 이미지와 템플릿을 연결하면...
 
-![[Pasted image 20240629200339.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CloudWatch%20/%20Pasted%20image%2020240629200339.png)
 
 EC2 인스턴스의 메모리와 CPU 사용량을 그림으로 확인할 수 있게됨
 
