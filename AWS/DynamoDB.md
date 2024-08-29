@@ -34,7 +34,7 @@ NoSQL은 관계형 데이터베이스처럼 행과 열이 존재하는 테이블
 	- 문서 데이터베이스와 비슷하나 구조가 훨씬 간단하며, 마찬가지로 Key-Value 형태의 JSON 데이터를 보관
 - 그래프 데이터 베이스
 	- 노드와 엣지를 사용하여 데이터를 보관
-	- ![[Pasted image 20240802165312.png|300]]
+![300](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802165312.png)
 
 #### NoSQL 도입
 
@@ -53,13 +53,13 @@ NoSQL에 탄생하기 전까지, 데이터베이스 시스템은 RDBMS(관계형
 
 그래서 DynamoDB는 어떻게 생겼을까?
 
-![[Pasted image 20240802165639.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802165639.png)
 
 아이템 : {’ customer_id ’ : 644, ’age ’ : 26, ’visit ’ : True} -> 행
 특징 : {’age’ : [26, 31]} -> 열
 
 테이블을 JSON 형태로 표현하면 다음과 같음
-![[Pasted image 20240802181148.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802181148.png)
 
 ---
 
@@ -79,7 +79,7 @@ NoSQL에 탄생하기 전까지, 데이터베이스 시스템은 RDBMS(관계형
 - NoSQL 데이터베이스는 쿼리 속도(특히 읽기 속도)가 매우 삐름
 	- NoSQL은 테이블 비정규화 과정을 기본적으로 거치는데, 테이블 비정규 화는 쓰기 퍼포먼스를 낮추는 대신 읽기 퍼포먼스를 극대화하는 것이 핵심
 	- 비정규화된 테이블은 이미 중복 데이터를 포함하고 있기 때문에 다른 태이블과 합치는 과정(join)이 필요 없음
-	![[Pasted image 20240802181440.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802181440.png)
 
 - 오토스케일링 가능
 	- 데이터베이스를 만들 때 크기가 정해지는데 오토스케일링 기능이 활성화된다면 들어오는 데이터 크기에 따라 태이블 크기가 자동으로 변경됨
@@ -102,7 +102,7 @@ NoSQL에 탄생하기 전까지, 데이터베이스 시스템은 RDBMS(관계형
 테이블에 있는 데이터를 파티션으로 나누고 분리시키는 데 사용되는 키
 실제로 데이터가 들어가는 장소(장소란 DynamoDB 안에서 해시 함수를 실행시켜 반환되는 주솟값)를 정해줌
 
-![[Pasted image 20240802182313.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802182313.png)
 고려사항
 - 주로 높은 카디널리티(중복된 데이커가 많이 않은 것)가 파티션 키로 사용됨
 	- ex. 아이디필드가 주로 사용됨
@@ -111,7 +111,7 @@ NoSQL에 탄생하기 전까지, 데이터베이스 시스템은 RDBMS(관계형
 
 여러 개의 키를 합쳐놨다는 뜻이며 위에서 살펴본 파티션키와 정렬키(*정렬키는 파티션키로 데이터가 다른 장소로 분리된 다음 그 안에서 정렬키에 의해 데이터가 정렬될 때 사용되는 기준점*)를 합쳐 놓은 것
 
-![[Pasted image 20240802182716.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802182716.png)
 
 
 **DynamoDB 기본키는 파티션키 혹은 복합키 둘중 하나를 반드시 선택**해야하며 **정렬키만 기본키로 지정할 수 없음**
@@ -126,7 +126,7 @@ DynamoDB에 있는 테이블과 데이터는 AWS 사용자 모두에게 공개�
 사용자에게 테이블 생성과 접근 권한을 부여할 수 있으며, 특정 테이블과 특정 데이터에만 접근을 가능하게 해주는 IAM 역할도 존재함
 
 ex. 아래는 전 세계 게이머 정보가 들어가있는 테이블이고 쿼리를 통해 현재 본인 기록을 확인하고 싶을때 
-![[Pasted image 20240802183000.png|400]]
+![400](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802183000.png)
 
 ---
 
@@ -154,14 +154,14 @@ LSI는 DynamoDB 테이블 생성 시에만 정의가능하고 테이블을 만�
 테이블에서 데이터가 변경되면 뷰는 이를 인식하고 즉시 반영함
 인텍스를 정의한다는 의미는 테이블에서 어떤 변화를 주는 것이 아니라 기존 테이블에서 새로운 뷰를 만드는 것임
 
-![[Pasted image 20240802183719.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802183719.png)
 
 #### 글로벌 보조 인덱스(GSI)
 
 LSI와 달리 GSI는 테이블 생성 후에도 추가, 변경, 삭제가 가능함. 뿐만 아니라 파티션키와 정렬키를 원래 테이블과 다르게 정의할 수 있음. 정렬키는 필수가 아닌 선택사항
 **따라서 완전히 다른 뷰를 만들 수 있음**
 
-![[Pasted image 20240802184234.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802184234.png)
 
 #### 그렇다면 두 인덱스는 언제 사용?
 
@@ -176,7 +176,7 @@ GSI에서 정렬키는 선택사항이기 때문에 정렬키의 중요성에 �
 
 쿼리는 테이블을 만들 때 정의한 기본키를 가지고 데이터를 가져오는 방법
 
-![[Pasted image 20240802184433.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802184433.png)
 
 만약 쿼리를 하고 반환되는 데이터 양이 너무 많다면 정렬키를 제공하고 추가로 필터링하여 원하는 데이터를 가져올 수 있음
 거래 아이디 AAA로 가장 최근에 진행된 거래가 무엇인지 알고 싶다면 거래 시간을 정렬키로 설정하여 쿼리를 수행하면 됨
@@ -188,14 +188,14 @@ GSI에서 정렬키는 선택사항이기 때문에 정렬키의 중요성에 �
 기본키를 사용하지 않고 테이블 안에 있는 모든 데이터를 불러옴
 모든 데이터를 불러온 다음 필터를 따로 추가하여 원하는 데이터만 볼 수 있는 기능을 제공함. 스캔도 쿼리와 마찬가지로 Projection Expression 파라미터를 제공하기에 스캔을 통해 원하는 열만 볼 수 있음
 
-![[Pasted image 20240802184705.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802184705.png)
 
 스캔을 하면 테이블에서 한 번에 모든 데이터를 가져오는 것이 아니라 첫 1MB에 해당하는 데이터를 반환함
 그다음 1MB에 해당하는 배치 데이터를 반환하는데 이것을 **순차적 스캔**이라고 함
 
 작은 태이블을 스캔할 경우 첫 배치 데이터 크기가 1MB 미만이라면 한 번에 반환되지만 테이블의 크기가 100MB가 넘는다면 총 100번의 배치 데이터가 반환되며 그만큼 속도가 저하됨
 
-![[Pasted image 20240802184840.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802184840.png)
 
 스캔의 성능을 향상시키기 위해 스캔을 실행할 때 수많은 스캔 일꾼을 여러 군데 분산시켜 병행하는 기능을 활용
 이를 **병렬 스캔**이라고 함
@@ -214,7 +214,7 @@ AWS에서는 가급적이면 쿼리를 사용하라고 권장하지만 참고용
 
 ->  상품 고유코드를 담고 있는 테이블은 크기가 크지 않고 기본키도 없음. Lookup 테이블의 특징은 실시간으로 데이터가 자주 업데이트 되지 않고 데이터 중복이 없다는 점이 있음
 
-![[Pasted image 20240802185338.png|300]]
+![300](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240802185338.png)
 
 
 ---
@@ -324,7 +324,7 @@ LSI는 DynamoDB의 기본 테이블과 밀접하게 통합된 구조로 인해 �
 퍼포먼스 비교 측면에서 SQl과 NOSQL을 비교해보면... 
 실제로 측정하진 못했지만 위 [논문](https://www.cs.rochester.edu/courses/261/fall2017/termpaper/submissions/06/Paper.pdf)을 확인해 보면 명확한 퍼포먼스 비교가 가능함
 
-![[Pasted image 20240814162614.png|500]]
+![500](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/DynamoDB%20/%20Pasted%20image%2020240814162614.png)
 
 가장 많이 사용하는 관계형 데이터베이스인 MySQL과 Key-value NoSQL인 BerkeleyDB, Document NoSQL인 MongoDB에 대하여 실험을 진행한 것으로 읽기 연산에는 NoSQL이 전반적으로 3배 이상 빠른것을 볼 수 있음
 
