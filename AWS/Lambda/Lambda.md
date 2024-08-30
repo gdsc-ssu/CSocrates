@@ -15,7 +15,7 @@
 
 개발자가 Lambda에서 코드를 작성한 후 배포하면 이벤트가 발생할 경우 Lambda함수가 실행된다.
 
-![lambdaEvent](img/lambdaEvent.png)
+![lambdaEvent](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20lambdaEvent.png)
 
 - Lambda 함수가 호출되면 코드로 원하는 로직을 실행시킬 수 있을 뿐만 아니라 또다른 AWS 리소스를 불러올 수 있다.
 - Java, Go, PowerShell, Node.js, C#, Python 및 Ruby 코드를 지원하며, 그 밖에 프로그래밍 언어를 사용해 함수를 작성할 수 있도록 Runtime API도 제공한다. ( Runtime API : Lambda 함수의 실행 환경과 상호작용하기 위한 API)
@@ -44,7 +44,7 @@ Lambda함수 호출 예로 Amazon SNS메시지를 사용한다고 가정해본�
 **람다함수 공간 제공**
 
 Lambda함수는 최대 512MB의 가상 디스크 공간을 제공한다. Lambda함수가 구동할 때 가상 컨테이너를 통해 가상 공간이 만들어지며 여기서 Lambda함수를 실행하면서 일시적으로 파일을 보관할 수 있다.
-![lambdaContainer](img/lambdaContainer.png)
+![lambdaContainer](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20lambdaContainer.png)
 
 Lambda 함수 실행이 종료되면 모두 사라지지만, 임시 저장소에 보관된 파일을 다른 AWS 리소스에 서서 콘텐츠를 안전하게 옮기면 된다. 주로 데이터 전처리 시 거치는 중간 단계 과정을 디스크이 임의로 보관하고 다시 꺼내서 사용하는 데 활용된다.
 
@@ -66,7 +66,7 @@ Lambda 함수가 실제로 어떻게 사용되는지 몇 가지 사용 사례를
 
 ### 사례 1
 
-![lambdaEX](img/lambdaEx1.png)
+![lambdaEX](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20lambdaEx1.png)
 
 - S3 버킷에 파일 업로드, 파일 업로드는 사람이 직접 업로드를 하거나 파이프라인을 거쳐 업로드 되는 두 가지 방법이 있다.
 - 이때 'PutObject'라는 이벤트가 발생되며 즉시 람다 함수를 실행한다.
@@ -75,7 +75,7 @@ Lambda 함수가 실제로 어떻게 사용되는지 몇 가지 사용 사례를
 
 -> 이런 일련의 과정을 가능하게 해주는 것이 람다 함수
 
-![lambdaEX](img/lambdaEx1-1.png)
+![lambdaEX](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20lambdaEx1-1.png)
 더 구체적인 파이프라인 구축 사례로 봐보자
 
 위의 데이터는 크게 '주행 데이터'와 '사고 데이터'로 분류할 수 있다.
@@ -94,7 +94,7 @@ Lambda 함수가 실제로 어떻게 사용되는지 몇 가지 사용 사례를
 ### 사례 2
 
 사물 인터넷은 '토픽'이라 불리는 개념이 다양한 이벤트를 처리한다. 아두이노 사례를 통해 람다 함수 사례를 알아보자
-![lambdaEX](img/lambdaEx2.png)
+![lambdaEX](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20lambdaEx2.png)
 
 간단히 보면 매초 온도 데이터가 들어오면 온도의 범위에 근거하여 다른 토픽으로 데이터가 전송되는 과정.
 
@@ -115,13 +115,13 @@ Lambda 함수가 실제로 어떻게 사용되는지 몇 가지 사용 사례를
 람다 함수를 통해 GDSC 커밋짱을 알아보자!
 
 [콘솔 페이지]
-![Training](img/Training1.png)
-![Training](img/Trainig1-1.png)
+![Training](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20Training1.png)
+![Training](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20Trainig1-1.png)
 
 - AWS -> Lambda
 
 [함수 생성]
-![Training](img/Training2.png)
+![Training](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20Training2.png)
 
 - 함수 이름은 자유
 - 런타임 실습에서는 파이썬 선택
@@ -179,12 +179,12 @@ def lambda_handler(event, context):
     }
 ```
 
-![Training](img/Training3-1.png)
+![Training](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20Training3-1.png)
 
 - 작성 후 Depoly 클릭!
 
 [테스트 코드 작성]
-![Training](img/Training3.png)
+![Training](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20Training3.png)
 
 ```
 {
@@ -195,4 +195,4 @@ def lambda_handler(event, context):
 ```
 
 [테스트 출력]
-![Training](img/Training4.png)
+![Training](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Lambda%20/%20Training4.png)
