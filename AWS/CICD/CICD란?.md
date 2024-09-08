@@ -24,7 +24,7 @@ CD, 지속적 배포(Continuous Delivery)는 코드 변경 사항이 자동으�
 
 CI와 CD는 함께 공존한다.
 
-![img](img/CICD-EX-1.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-1.png)
 
 위의 그림처럼 소프트웨어 개발은 무한 루프처럼 끝없는 반복과정을 거치면서 이루어진다. 개발자가 모든 과정을 관리하는 것은 어려우며, 잦은 실수를 범할 수 있다. <b>CI/CD는 자동화 개념을 도입하여 소프트웨어 개발 과정을 편하게 해준다.</b>
 
@@ -38,7 +38,7 @@ CI와 CD는 함께 공존한다.
 ## 점진적 변화
 
 [ 쇼핑몰 웹사이트 ]
-![img](img/CICD-EX-2.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-2.png)
 
 - 유저가 아이템 가격을 보려고 했는데, 가격 정보가 없는 상황 -> 그래서 가격을 알 수 없다는 문의 사항 접수. 개발자는 이 버그를 수정해야 함. 모든 수정사항을 한 번에 수정할 수는 없다.
 - 그럼 가격을 보이게 하기 위해 X,Y,Z 기능을 개발해야 한다고 가정하면, 우선 X를 개발하고 X에 대한 테스트를 거친 후 Y로 넘어간다. 그 후 Y에 대한 테스트를 거친 후 Z 구현
@@ -64,7 +64,7 @@ CI와 CD는 함께 공존한다.
 
 리포지토리도 로컬 리포지토리와 원격 리포지토리로 나뉜다. 로컬 리포지토는 개발자는 브랜치를 만들고 코드 구현하는 곳. 원격 리포지토리는 깃허브 웹사이트에서 생성한 리포지토리이며 마스터 브랜치가 하나 존재한다. 이를 클론해서 리포지토리에 있는 내용을 그대로 로컬에 가져온다.
 
-![img](img/CICD-EX-3.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-3.png)
 로컬 브랜치에서 개발 및 테스트 과정을 마치면 원격 리포지토리로 푸쉬해야한다. 여기서 로컬 브랜치는 아직 마스터 브랜치와 합쳐지지 않고 다른 개발자의 승인 및 검증 과정을 성공적으로 거친 후 마스터 브랜치와 합쳐지며 마스터 브랜치 내용물에 변화!
 
 원격리포지토리와 로컬리포지토리의 마스터 브랜치는 싱크가 되어 있지 않으니, 로컬 브랜치를 만들기 전에 로컬 마스터 브랜치를 업데이트 해줘야 한다.(풀 받으세요!!)
@@ -103,10 +103,10 @@ CI/CD 덕분에 배포 준비는 자동으로 진행. CI/CD는 현재 프로덕�
 배포 준비를 마쳤다면 바로 배포하여 중앙 리포지토리에 있는 최신 코드를 프로덕션에 적용 시켜야 한다.
 
 [배포과정 이해]
-![img](img/CICD-EX-4.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-4.png)
 각자 자기 코드 개발 중! A는 고객의 불편함을 없애기 위한 부분 코드 작성 중
 
-![img](img/CICD-EX-5.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-5.png)
 메인 리포지토리에서 파란색 부분은 개발자 A에 의해 코드 수정이 반영된 영역이다. 상당히 많은 비중을 차지하지만，개발자 A의 코드 구현은 다른 개발자의 코드 구현이나 테스트에 전혀 영향을 미치지 않는다.
 
 # 코드 커밋
@@ -122,8 +122,8 @@ CI/CD 덕분에 배포 준비는 자동으로 진행. CI/CD는 현재 프로덕�
 ### 코드 커밋 실습
 
 AWS 코드 커밋을 통해 마치 깃허브 처럼 레포지토리를 생성하고, 브랜치 만들고 커밋하고 등등의 과정을 진행할 수 있다.
-![img](img/CICD-EX-6.png)
-![img](img/CICD-EX-7.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-6.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-7.png)
 
 - AWS CodeCommit은 HTTPS, SSH를 활용하여, 파일을 송수신할 수 있으며, 소스 저장에 사용되는 레포지토리는 Key Management Service(KMS) 를 통해 저장 중 자동으로 데이터를 암호화
 - 콘솔로 직접 리포지토리 파일 업로드 가능
@@ -133,7 +133,7 @@ AWS 코드 커밋을 통해 마치 깃허브 처럼 레포지토리를 생성하
 ### AWS 코드 커밋 사용 좋은 점?
 
 AWS CodeCommit의 장점은 주로 AWS 생태계와의 통합 및 보안 측면에서 두드러진다.
-![img](img/CICD-EX-8.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-8.png)
 
 # 코드 배포
 
@@ -170,11 +170,11 @@ AWS CodeCommit의 장점은 주로 AWS 생태계와의 통합 및 보안 측면�
 
 [위의 예시 과정 : 롤링배포 방식 과정]
 
-![img](img/CICD-EX-9.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-9.png)
 세 개의 EC2 인스턴스가돌아가고 있으며 하나의 ELB로 묶여있습니다. ELB는 서버 트래픽을 각각의 인스턴스별로 균등하게 배분하여 서버의 부하를 줄이기 위해 사용됩 니다. 현재모든인스턴스의 버전은 VO
-![img](img/CICD-EX-10.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-10.png)
 개발자가새로운기능구현을마쳤고롤링 배포 방식을 사용한다면 가장 먼저 발생하는 일은 첫 번째 인스턴스가 섯다운. 하나의 인스턴스가 섯다운되기 때문에 서버의 성능은 다소 멀어진다. 뿐만 아니라 첫 번째 인스턴스가 비활성화되었기 때문에 ELB에서 첫 번째 서버로의 트래픽 배분 관련 설정을 변경 해야한다.
-![img](img/CICD-EX-11.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-11.png)
 배포가 끝났다면 첫 번째 인스턴스는 다시 활성화되며 인스턴스 버전은 VO에서 V1로 업데이트. 이 이후의 방식도 똑같이 진행 됨!
 
 ### ❓ 만약 최근에 배포한 기능에서 버그가 발견되어 이전 버전으로 돌아가야 한다면 어떻게 해야 할까?
@@ -199,7 +199,7 @@ AWS CodeCommit의 장점은 주로 AWS 생태계와의 통합 및 보안 측면�
 
 다만 현재 프로덕션 에서 돌아가고 있는 서버가 파란색 네모 안에 들어있는지 확인해준다. 코드 배포는 개발자가 코드 구현을 마친 후 새로운 애플리케이션이 돌아갈 인스턴스를 생성한다. 이 인스턴스는 초록색 네모 안에 들어간다.
 
-![img](img/CICD-EX-12.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-12.png)
 Vl이 ELB에 등록되었다면 서버 트래픽을 파란색에서 초랙으로 천천히 옮긴다. 결국 파란색 영역의 VO인스턴스는 모두 비활성화되며 셧다운된다. 그렇게 초록색 부분만 남게 된다.
 
 ### ❓ 다시 돌아가서 질문, 이전 버전으로 롤백해야 한다면 블루그린 배포를 통해 쉽게 해낼 수 있을까?
@@ -236,7 +236,7 @@ Vl이 ELB에 등록되었다면 서버 트래픽을 파란색에서 초랙으로
 
 ## 코드 파이프라인 작동 방법
 
-![img](img/CICD-EX-13.png)
+![img](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/CICD%EB%9E%80%3F%20/%20CICD-EX-13.png)
 코드 파이프라인을 사용하기 앞서, 워크플로(workflow)를 정의해야 한다. 워크플로는 코드 커밋 리포지토리에서 특정 파일의 콘텐츠 변경이 생겼을 때 실행된다.
 
 기존 커밋과 비교하여 새로운 변경이 감지되면, 코드 빌드(CodeBuild)를 통해 소스 코드가 컴파일 되고 테스트를 거친 후 패키지가 생성된다.
