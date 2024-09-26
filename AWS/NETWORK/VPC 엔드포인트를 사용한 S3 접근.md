@@ -16,8 +16,8 @@ VPC 내 리소스 대역폭 비용을 낮게 유지하면서 보안을 위해 �
 
 ### 해결 방법
 VPC 엔드포인트를 활용하여 private subnet에 있는 인스턴스에서 private s3 버킷 혹은 public s3 버킷으로 접근할 수 있다.
-> ![[Pasted image 20240804154437.png]]
-> ![[Pasted image 20240804154502.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/VPC%20%EC%97%94%EB%93%9C%ED%8F%AC%EC%9D%B8%ED%8A%B8%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%9C%20S3%20%EC%A0%91%EA%B7%BC%20/%20Pasted%20image%2020240804154437.png)
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/VPC%20%EC%97%94%EB%93%9C%ED%8F%AC%EC%9D%B8%ED%8A%B8%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%9C%20S3%20%EC%A0%91%EA%B7%BC%20/%20Pasted%20image%2020240804154502.png)
 > 출처 : 농심 tech 블로그
 
 Gateway endpoint를 설정하면 routing table에 pl-id (prefix list id / 접두사 목록)가 생성되고, 해당 s3 endpoint는 vpc endpoint를 활용하여 접근하게 된다.
