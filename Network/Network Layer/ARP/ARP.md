@@ -4,7 +4,7 @@
 IP 주소와 MAC주소를 일대일 대응으로 정리하고, 목적지 IP에 맞는 목적지 주소로 전달하는 ARP Table이 있다.
 
 ## ARP Table 생성 과정
-![[Pasted image 20231111012342.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/ARP%20/%20Pasted%20image%2020231111012342.png)
 1. PC0 (192.168.1.1)은 PC2(192.168.1.3)으로 데이터를 전달하려고 한다. Routing Table에 자신과 PC2가 같은 LAN에 속한것을 확인했다.
 2. PC2의 MAC주소를 알기 위해 ARP Request (Who has 192.168.1.3? Tell 192.168.1.1)을 뿌린다.
 3. PC0는 Broadcase(FF:FF:FF:FF:FF:FF)인 ARP Request를 날리고 이는 PC1, PC2, P3에 전달된다. 이에 ARP Request의 목표인 PC2가 반응하여 ARP Response(PC2의 MAC주소)를 보낸다.

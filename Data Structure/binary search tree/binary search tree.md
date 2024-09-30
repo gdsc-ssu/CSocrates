@@ -15,7 +15,7 @@
 - 이진 탐색 트리의 시간 복잡도는 ==**O(log n)**==으로 더 효율적
 
 
-![[이진 탐색 트리 예시.gif]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/binary%20search%20tree%20/%20%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89%20%ED%8A%B8%EB%A6%AC%20%EC%98%88%EC%8B%9C.gif)
 
 ---
 ##### 이진 탐색 트리의  삽입/탐색
@@ -88,21 +88,21 @@ int main() {
 
 ```
 
-![[탐색 연산 예.jpeg|500]]
+![500](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/binary%20search%20tree%20/%20%ED%83%90%EC%83%89%20%EC%97%B0%EC%82%B0%20%EC%98%88.jpeg)
 
 ##### 이진 탐색 트리에서의 삭제
 
 - 단말 노드의 삭제
 	- ==부모의 자식 필드에 0을 삽입==. 삭제된 노드 반환
-	![[단말 노드의 삭제.jpeg]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/binary%20search%20tree%20/%20%EB%8B%A8%EB%A7%90%20%EB%85%B8%EB%93%9C%EC%9D%98%20%EC%82%AD%EC%A0%9C.jpeg)
 
 - 하나의 자식을 가진 비리프 노드의 삭제
 	- 삭제된 노드의 자식을 삭제된 노드 자리에 위치
-	![[하나의 자식을 가진 비리프 노드의 삭제.jpeg]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/binary%20search%20tree%20/%20%ED%95%98%EB%82%98%EC%9D%98%20%EC%9E%90%EC%8B%9D%EC%9D%84%20%EA%B0%80%EC%A7%84%20%EB%B9%84%EB%A6%AC%ED%94%84%20%EB%85%B8%EB%93%9C%EC%9D%98%20%EC%82%AD%EC%A0%9C.jpeg)
 
 - 두 개의 자식을 가진 비리프 노드의 삭제
 	- 삭제된 원소를 왼쪽 서브트리에서 가장 큰 원소 또는 오른쪽 서브트리에서 가장 작은 원소로 대체
-	![[두개의 자식을 가진 비리프 노드의 삭제.jpeg|500]]
+![500](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/binary%20search%20tree%20/%20%EB%91%90%EA%B0%9C%EC%9D%98%20%EC%9E%90%EC%8B%9D%EC%9D%84%20%EA%B0%80%EC%A7%84%20%EB%B9%84%EB%A6%AC%ED%94%84%20%EB%85%B8%EB%93%9C%EC%9D%98%20%EC%82%AD%EC%A0%9C.jpeg)
 
 
 ```c++
@@ -155,7 +155,7 @@ Node* deleteNode(Node* root, int key) {
 이진 탐색 트리 핵심 연산인 탐색, 삽입, 삭제의 계산 복잡성은 모두 𝑂(ℎ)으로 트리의 높이에 의해 수행시간이 결정되는 구조. 
 
 이때, 트리가 다음과 같은 경우 문제가 발생
-![[이진 탐색 트리 한계점 예시.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/binary%20search%20tree%20/%20%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89%20%ED%8A%B8%EB%A6%AC%20%ED%95%9C%EA%B3%84%EC%A0%90%20%EC%98%88%EC%8B%9C.png)
 위 경우는 노드 수는 적은데 높이가 5나 되버림
 결과적으로 이진 탐색 트리의 계산 복잡성은 ==𝑂(𝑛)==이 되는데 이는 ==탐색 속도가 𝑂(log𝑛)으로 빠른 이진탐색==을 계승했다고 보기 어려움
 

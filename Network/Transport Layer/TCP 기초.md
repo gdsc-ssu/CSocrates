@@ -46,24 +46,24 @@ ___
 ### 3-Way Hand Shake
 TCP 연결을 진행하기 위해 가장 우선적으로 처리해야 하는 작업은 연결을 수립하는 작업이다. 앞서 말했듯 TCP는 연결 지향이고 연결이 성사돼야 신뢰성을 보장할 수 있기 때문에 우선적으로 연결을 수립한다. 이때 ==**연결을 수립하는 과정을 3-Way Hand Shake라고 한다.**==
 
-![[Pasted image 20231117142819.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117142819.png)
 
 클라이언트는 호스트로 연결 수립을 위한 SYN 패킷을 전송하고 호스트 또한 이를 수신한 응답인 SYN + ACK를 클라이언트에 돌려준다. 이후 클라이언트는 호스트에게 서버의 응답을 잘 받았다는 의미를 가진 ACK 패킷을 전달하고 이후 서버와 클라이언트 간의 TCP 통신이 시작된다.
 
 * **CLOSED**
 소켓이 생성 됐으나 아직 어떠한 연결도 받아들일 준비가 안돼있는 상태를 말한다. 소켓은 생성 직후 C해당 상태이다.
-![[Pasted image 20231117143127.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117143127.png)
  
  * **LISTEN**
- 수신자가 요청을 기다리고 있는 상태이며 수신자는 신규 요청이 올 때까지 대기한다. LISTEN은 수동적으로 요청이 들어오는 것만을 대기하기 때문에 수동 개방 상태라고도 한다. ![[Pasted image 20231117143317.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117143317.png)
  * **SYN_SENT**
 요청자가 수신자에게 연결 요청을 보낸다. 연결 요청을 할때 요청자는 수신자에게 시퀀스 번호를 생성해 SYN 패킷에 담아 전송한다. 이 SYN 패킷을 수신자가 수신하게 되면 소켓의 상태가 LISTEN->SYN_RECIEVED 변경된다.
 
 * **SYN_RECIEVED**
 수신자가  SYN 패킷을 전달 받은 경우를 의미하며 수신자는 이를 확인했다는 SYN-ACK 패킷을 요청자에게 다시금 돌려준다.이때 전송하는 승인 번호(ack_number)는 요청자가 전달한 시퀀스 번호 + 1이 된다. 실질적으로 데이터를 주고 받지는 않고 확인의 기능만 하면 되기 때문에 +1을 활용하는 것이다.
-![[Pasted image 20231117144006.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117144006.png)
 
-![[Pasted image 20231117144031.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117144031.png)
 
 * **ESTABLISHED**
 **SYN-ACK 패킷이 요청자에게 전달되면 요청자는 자신의 소켓의 상태를 ESTABLISHED 변경**한다. **ESTABLISHED 두 소켓 간의 논리적인 회선이 이 단계에서 성립됐다고 해석하면 된다.**
@@ -71,20 +71,20 @@ TCP 연결을 진행하기 위해 가장 우선적으로 처리해야 하는 작
 클라이언트 소켓은 SYN-ACK를 수신하면 서버 소켓과의 연결을 생성한다. 클라이언트는 서버로 자신의 SYN-ACK에 대해 seq_number에 1을 더해 돌려준다. 요청자의 소켓은 이때 통신 가능한 상태로 변경된다.
 
 수신자의 경우 요청자가 전달한 SYN-ACK에 대한 ACK를 수신하면 ESTABLISHED로 전환된다.
-![[Pasted image 20231117144734.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117144734.png)
 ___
 ### 4-Way Hand Shake
 TCP 연결을 종료하기 위해 사용하는 방법이다. 4-way handshake는 주요 과정으로 이를 잘못할 경우 <b><u>송,수신할 데이터가 남아있음에도 연결이 급하게 종료될 수 있고 이는 데드락을 발생시킬 수 있기 때문에 연결의 종료는 신중하게 이뤄져야 한다.</b></u>
-![[Pasted image 20231117211342.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117211342.png)
 
 - **FIN-WAIT-1** 
 첫번째 FIN은 요청자로 부터 전송된다. 요청자가 연결의 종료를 주도하기 때문에 **능동 종료(Active Close)라고 불리기도 한다.**
 
 * **CLOSE-WAIT**
 수신자는 요청자로 부터 받은 FIN 패킷에 대한 응답을 전송한 후 CLOSE-WAIT 상태가 된다. <b><u>이후 수신자는 모든 처리를 완료하면 명시적으로 shutdown()이나 close() 함수 등을 호출해 다음 상태로 이동한다. 이때 수신자 내부에서 에러가 발생해 함수 호출이 이뤄지지 않으면 FIN 패킷을 요청자에게 전송하지 못할 경우 데드락이 발생할 수 있다. </u></b>
-![[Pasted image 20231117211847.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117211847.png)
 패킷이 위의 단계 까지만 교환되고 문제가 발생해 수신자에서 FIN 패킷을 다시 전송 못한다면, 송신자는 영영 FIN을 기다려야 한다.
-![[Pasted image 20231117212108.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117212108.png)
 
 - **LAST_ACK**
 **수신자는 더 이상 처리할 데이터가 없을 경우 연결을 종료하는 함수(close)를 명시적으로 호출하고 요청자에게 FIN 패킷을 전송한다.** 이후 요청자로부터 FIN에 대한 응답이 올때 까지 대기한다. **만약 ACK가 오지 않으면 ACK만을 기다리며 계속해서 FIN을 전송할 수도 있다.**
@@ -94,16 +94,16 @@ TCP 연결을 종료하기 위해 사용하는 방법이다. 4-way handshake는 
  
 - **TIME-WAIT**
 TIME-WAIT는 서버가 보낸 FIN 패킷을 수신하고 이에 응답하는 ACK 패킷을 전송한다. **==TIME-WAIT는 TCP 커넥션이 끊어질 때 필연적으로 발생하며 TIME OUT 기간 동안 무조건적으로 소켓을 열어 놓는 특징을 갖는다.**== 따라서 <b><u>서버로부터 FIN 패킷을 수신한 이후로도 한동안 소켓이 포트를 점유하고 있는 비효율을 유발하는데,</u></b> 여기에는 사연이 있다.
-![[Pasted image 20231117214139.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117214139.png)
 
 1. **전송이 완료 됐다고 생각했던 데이터가 네트워크 상에서 지연될 경우 유실된 데이터를 받지 못할 수 있다.**
 2. **마지막 ACK가 유실될 경우 수신자는 LAST-ACK 상태에서 교착될 수있다.**
-![[Pasted image 20231117214830.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117214830.png)
 
 이에 따라 **인위적으로 TIME OUT 기간 동안 소켓을 열어놔 늦게 도착한 데이터 및 FIN의 수신과 ACK의 전송을 보장**한다. **TIME-WAIT 상태는 TIME OUT 기간을 넘어가면 자동적으로 종료**된다. (행온 상태가 아닐 경우)
 
 **인위적으로 소켓을 열어놓기 떄문에 동일한 소켓을 재 사용하기 위해선 TIME-WAIT가 끝나는 시간까지 무조건 대기**해야한다. 소켓 프로그램을 재실행 했을 때 이 에러를 자주 봤을 것이다. 따라서 **TIME-WAIT가 동시 다발적으로 많이 발생할 경우 포트 부족 문제 등을 야기할 수 있기 때문에 소켓 설정을 변경할 필요가 존재한다.**
-![[Pasted image 20231117214549.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/TCP%20%EA%B8%B0%EC%B4%88%20/%20Pasted%20image%2020231117214549.png)
 ___
 ### 4-Way 조금 더
 

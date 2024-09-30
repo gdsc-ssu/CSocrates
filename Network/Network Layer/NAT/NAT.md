@@ -49,7 +49,7 @@ IP 주소 뿐만 아니라 포트 번호 등도 같이 포함시켜서 내부 �
 
 ### NAT Hairpinning
 
-![](NAT_1_Hairpinning.png)
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/NAT%20/%20NAT_1_Hairpinning.png)
 
 다른 말로, NAT Loopback.
 로컬 네트워크의 내부 디바이스가 해당 네트워크의 공인 IP 주소를 통해 자신의 서비스에 접근할 수 있도록 하는 기능.
@@ -63,7 +63,7 @@ IP 주소 뿐만 아니라 포트 번호 등도 같이 포함시켜서 내부 �
 
 ## Port Forwarding
 
-![](NAT_2_Port_Forward.png)
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/NAT%20/%20NAT_2_Port_Forward.png)
 
 네트워크에서 사용하는 특정 포트 번호를 한 장치에서 다른 장치로 전달하는 기술. 
 
@@ -96,7 +96,7 @@ IP 주소 뿐만 아니라 포트 번호 등도 같이 포함시켜서 내부 �
 
 ## DMZ
 
-![](NAT_3_DMZ.png)
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/NAT%20/%20NAT_3_DMZ.png)
 DMZ 선택 시 - IP 주소 입력 란 활성화
 Super DMZ 선택 시 - 네트워크 내에 감지된 MAC 주소 선택 란 활성화
 
@@ -107,7 +107,7 @@ Super DMZ 선택 시 - 네트워크 내에 감지된 MAC 주소 선택 란 활�
 
 ## VPN
 
-![](NAT_4_VPN.png)
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/NAT%20/%20NAT_4_VPN.png)
 
 VPN passthrough : VPN 트래픽이 이 라우터 (방화벽)을 통과할 수 있는지 설정
 - IPSEC : 안전한 통신을 위한 프로토콜.
@@ -117,7 +117,7 @@ VPN passthrough : VPN 트래픽이 이 라우터 (방화벽)을 통과할 수 �
 
 ## Network 설정
 
-![](NAT_5_Network_Config.png)
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/NAT%20/%20NAT_5_Network_Config.png)
 
 WAN 설정, LAN 설정, DHCP 서버 설정, DHCP 서버 예약 IP 추가 및 리스트를 관리할 수 있다.
 

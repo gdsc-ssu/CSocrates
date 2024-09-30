@@ -3,7 +3,7 @@
 **큐의 문제점**
 -> 데이터 삽입 / 삭제 시 데이터들을 앞 혹은 뒤로 당겨주는 과정이 필요하다. ==불필요한 시간 낭비==
 - 큐의 문제점을 해결하고자 메모리를 효율적으로 활용할 수 있는 circular queue가 등장 했다. 
-[![[queue.png]]]()
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Circular%20queue%20/%20queue.png)
 **Circular Queue의 개념**
 - 시작점과 끝점이 연결된 원형 구조를 가지고 있어, 배열의 끝에 도달하면 다시 배열의 시작점으로 돌아가는 특징을 가진다. 
 - 큐가 가득 차 있지 않은 상태에서도 빈 공간을 효율적으로 재활용할 수 있게 한다. 
@@ -201,4 +201,4 @@ int main() {
 ```
 
 실행화면
-![[execute.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/Circular%20queue%20/%20execute.png)

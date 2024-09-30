@@ -4,3 +4,5 @@ workspace.json
 .obsidian/snippets/*
 .obsidian/plugins/*
 .obsidian/appearance.json
+
+.DS_Store

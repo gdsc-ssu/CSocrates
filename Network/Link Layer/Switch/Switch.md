@@ -61,7 +61,7 @@ Trunking을 통해서 Tagged Port를 사용해 VLAN 사이에서 패킷을 주�
 이더넷 프레임에 VLAN ID 필드를 추가하여 태그 정보를 사용할 수 있다.
 ![[Pasted image 20231011193912.png]]
 태그를 보낼 때는 VLAN ID를 붙이고, 수신측에서 VLAN ID를 제거하여 VLAN ID의 VLAN으로 패킷을 전송할 수 있다.
-+) ![[Pasted image 20231011194023.png]] 
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/Switch%20/%20Pasted%20image%2020231011194023.png)
 VLAN을 사용하면 MAC 테이블에서도 VLAN 값이 함께 기록된다.
 ## STP (Spanning Tree Protocol)
 stp 프로토콜이란, Spanning Tree Protocol로서 Ethernet Frame이 장비들에서 빙빙 도는 Looping하는 현상을 방지하기 위한 프로토콜이다.

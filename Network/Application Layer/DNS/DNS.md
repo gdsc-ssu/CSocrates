@@ -18,12 +18,12 @@ DNS를 사용하면 IP 주소를 기억하는 대신 인터넷 도메인 이름�
 
 어떻게 확인할 수 있을까?
 nslookup을 활용할 수 있다.
-![[스크린샷 2023-12-30 오전 2.27.51.png]]![[스크린샷 2023-12-30 오전 2.28.22.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/DNS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-12-30%20%EC%98%A4%EC%A0%84%202.27.51.png)
 ## DNS 서버 종류
 - Root
 	- ICANN에서 관리하는 최상위 루트 DNS 서버
 	- TLD 서버의 IP를 저장하고 있다.
-	- 기존에는 13개의 서버였지만, 현재 1034개의 서버가 작동한다.![[Pasted image 20231230030014.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/DNS%20/%20Pasted%20image%2020231230030014.png)
 - TLD (Top Level Domain)
 	- 도메인 등록 기관이 관리하는 서버이다.
 	- Authoritative DNS Server 주소를 저장하고 있다.
@@ -34,10 +34,10 @@ nslookup을 활용할 수 있다.
 	- Local DNS Server라고도 부르며, 사용자가 가장 먼저 접근
 	- 한번 데이터를 얻으면 캐시하고, 사용자에게 전달하며, 없다면 상위 서버에 질의한다.
 
-![[Pasted image 20231230025554.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/DNS%20/%20Pasted%20image%2020231230025554.png)
 ## DNS 쿼리 단계
 
-![[Pasted image 20231230025255.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/DNS%20/%20Pasted%20image%2020231230025255.png)
 
 1. 사용자가 브라우저를 열어 도메인 이름을 작성하고 enter 입력
 2. www.example.com 의 요청을 ISP에 쿼리
@@ -56,7 +56,7 @@ nslookup을 활용할 수 있다.
 	- 도메인 이름을 IPv6 주소로 변환한다.
 - CNAME (Canonical NAME)
 	- 실제 호스트명 (A레코드)과 연결되는 별명, 별칭을 정의한다.
-	- 예를 들어 아래와 같은 경우, mydomain.com은 A 레코드로 IP 주소와 연결되어 있지만 fpt.mydomain.com이나 www.blog.mydomain.com 으로 되어있는 부분은 CNAME으로 설정되는 경우, 해당 도메인을 통해 A 레코드의 도메인으로 연결할 수 있다.![[스크린샷 2024-01-01 오전 3.28.47.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/DNS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202024-01-01%20%EC%98%A4%EC%A0%84%203.28.47.png)
 - MX (Mail Exchange)
 	- 메일서버에 도달할 수 있는 라우팅정보를 제공
 - NS (Name Server)
@@ -64,7 +64,7 @@ nslookup을 활용할 수 있다.
 	- 결과적으로 어떤 DNS가 해당 도메인의 권한 있는 Name Server인지 지시
 
 AWS의 Route53, GCP의 Cloud DNS와 같은 서비스에서 이러한 DNS를 사용할 수 있다.
-![[스크린샷 2023-12-30 오전 2.34.11.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/DNS%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-12-30%20%EC%98%A4%EC%A0%84%202.34.11.png)
 ### A vs AAAA
 DNS 레코드를 보면 뭐가 다른지 항상 궁금했다.
 [CloudFlare의 설명](https://www.cloudflare.com/ko-kr/learning/dns/dns-records/dns-aaaa-record/) 을 보면 A는 IPv4, AAAA는 IPv6에 대응되는 도메인 이름을 가져오도록 한다고 설명한다.

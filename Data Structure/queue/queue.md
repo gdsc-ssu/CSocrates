@@ -7,18 +7,18 @@
 
 메모리 안 데이터들을 더욱 효율적으로 다루기 위해 만들어진 데이터 참조 방식
 
-![[Data_Queue.svg.png|300]]
+![300](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/queue%20/%20Data_Queue.svg.png)
 
 ##### 선형구조
 
 데이터를 저장하기 위한 기본적인 형태로 데이터가 **'일렬로 나열'** 되어 있을 뿐만 아니라 데이터 간에 순서가 있고 논리적으로 이어져 있는 구조를 의미
 ex. 배열, 리스트
-![[자료구조.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/queue%20/%20%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0.png)
 
 ##### 선입선출
 
 자료구조에서 사용되는 용어로 **'가장 먼저 추가된 데이터가 가장 먼저 삭제'** 되는 구조를 의미
-![[선입선출.png|400]]
+![400](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/queue%20/%20%EC%84%A0%EC%9E%85%EC%84%A0%EC%B6%9C.png)
 ##### queue 동작 과정
 
 front와 rear 포인터 기준으로 동작
@@ -52,7 +52,7 @@ front와 rear 포인터 기준으로 동작
 2. 원형 큐
 	- 선형 큐의 문제점을 보완
 	- 배열의 마지막 인덱스에서 다음 인덱스로 넘어갈 때 **(index+1) % 배열의 사이즈** 를 이용하여 Out Of Bounds Exception이 일어나지 않고 인덱스 0으로 순환되는 구조
-		![[원형큐.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/queue%20/%20%EC%9B%90%ED%98%95%ED%81%90.png)
 3. 우선순위 큐
 	- 우선순위 큐(Priority Queue)는 들어가는 순서에 관계없이 큐에서 dequque 될 때, 우선순위에 맞게 나감
 	- 예를들어 A,B,C가 있을 때, A가 우선순위가 1, B가 3, C가 2면 C, B, A순으로 넣어도 A, C, B순으로 나옴
@@ -63,7 +63,7 @@ front와 rear 포인터 기준으로 동작
 ---
 #### 구현 예시
 
-![[queue.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/queue%20/%20queue.png)
 ##### 선형큐(C++)
 ```c++
 #include <iostream>
@@ -277,7 +277,7 @@ int main() {
 
 #### 사용 예시
 
-![[사용예시.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/queue%20/%20%EC%82%AC%EC%9A%A9%EC%98%88%EC%8B%9C.png)
 
 #### 참고자료
 C++ 자료구조론 - ELLIS HOROWITZ

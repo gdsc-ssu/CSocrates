@@ -15,7 +15,7 @@ HTTP는 신뢰성있는 데이터 전송프로토콜을 사용하기 때문에, 
 
 ### 웹 클라이언트와 서버
 
-![[웹 클라이언트와 서버.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%EC%9B%B9%20%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8%EC%99%80%20%EC%84%9C%EB%B2%84.png)
 클라이언트는 서버에게 HTTP 요청을 보내고 서버는 요청된 데이터를 HTTP 응답으로 돌려줌
 
 **클라이언트**
@@ -31,7 +31,7 @@ HTTP는 신뢰성있는 데이터 전송프로토콜을 사용하기 때문에, 
 
 ### 리소스
 
- ![[웹 리소스.png|500]]
+![500](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%EC%9B%B9%20%EB%A6%AC%EC%86%8C%EC%8A%A4.png)
 
 웹 서버는 웹 리소스를 관리하고 제공함
 
@@ -43,7 +43,7 @@ HTTP는 신뢰성있는 데이터 전송프로토콜을 사용하기 때문에, 
 
 ### 미디어 타입
 
-![[미디어 타입.png|600]]
+![600](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%EB%AF%B8%EB%94%94%EC%96%B4%20%ED%83%80%EC%9E%85.png)
 
 인터넷은 수천가지 데이터타입을 다루기 때문에, HTTP는 웹에서 전송되는 객체 각각에 신중하게 ==MIME타입==이라는 데이터 포맷라벨을 붙임
 
@@ -69,7 +69,7 @@ URI(Uniform Resource Identifier, 통합 자원 식별자)
 
  **URL (Uniform Resource Locator, 통합 자원 지시자)**
 	 - 가장 대중화된 리소스 식별자
-	 ![[URL.png|300]]
+![300](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20URL.png)
 	 - URL의 첫 번째 부분은 스킴(Scheme)이라고 불리는데, 사용되는 프로토콜을 서술
 	 - 두 번째 부분은 인터넷 주소(IP & Port)를 제공
 	 - 마지막은 웹 서버의 리소스
@@ -86,7 +86,7 @@ URI(Uniform Resource Identifier, 통합 자원 식별자)
 
 클라이언트가 웹 서버와 리소스를 주고받기 위해 HTTP를 어떻게 사용하는지 자세히 알아보면...
 
-![[트랜젝션.png|600]]
+![600](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%ED%8A%B8%EB%9E%9C%EC%A0%9D%EC%85%98.png)
 
 HTTP 트랜젝션은 **요청 명령**과 **응답 결과**로 구성되어 있는데 이는 HTTP 메시지라고 불리는 정형화된 데이터 덩어리를 통해 이뤄짐
 
@@ -118,13 +118,13 @@ HTTP 트랜젝션은 **요청 명령**과 **응답 결과**로 구성되어 있
 
 ### HTTP 메세지
 
-![[HTTP 메세지.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20HTTP%20%EB%A9%94%EC%84%B8%EC%A7%80.png)
 
 - HTTP 메세지는 단순한 줄 단위의 문자열
 - 일반 텍스트 형식이기 때문에 사람이 읽고 쓰기 쉬움
 - 웹 클라이언트에서 웹 서버로 요청 할때 보내는 메세지를 **요청 메세지**라고 하며,  웹 서버가 요청 처리 후, 웹 클라이언트에게 보내는 메세지를 **응답 메세지**라고 함
 
-![[HTTP 메세지 2.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20HTTP%20%EB%A9%94%EC%84%B8%EC%A7%80%202.png)
 
 - 시작줄
 	- 요청 메세지든 응답 메세지든 메세지의 첫 줄은 시작줄로, 요청이라면 무엇을 해야 하는지 응답이라면 요청으로 인해 무슨 일이 일어났는지를 나타냄
@@ -158,7 +158,7 @@ HTTP 포로토콜은 네트워크 통신에는 신경 쓰지 않으며, 이와 �
 
 **프락시 (Proxy)**
 
-![[프락시.png|300]]
+![300](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%ED%94%84%EB%9D%BD%EC%8B%9C.png)
 
 프락시(Proxy)는 중개인이라는 뜻으로 이름에서도 알 수 있듯이 웹 클라이언트와 웹 서버 사이에 위치하여, 클라이언트의 모든 HTTP 요청을 받아 서버에 전달함
 
@@ -175,7 +175,7 @@ HTTP 포로토콜은 네트워크 통신에는 신경 쓰지 않으며, 이와 �
 
 웹 캐시와 캐시 프락시는 자신을 거쳐 가는 문서들 중 자주 찾는 것의 사본을 저장해두는, 특별한 종류의 HTTP프락시 서버. 다음번에 클라이언트가 같은 문서를 요청하면 그 캐시가 갖고있는 사본을 받을 수 있음
 
-![[캐시.png|500]]
+![500](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%EC%BA%90%EC%8B%9C.png)
 
 **게이트 웨이**
 
@@ -184,7 +184,7 @@ HTTP 포로토콜은 네트워크 통신에는 신경 쓰지 않으며, 이와 �
 게이트웨이는 프락시와 마찬가지로 중개자 역할을 하지만 서로 다른 **네트워크 통신에서 서로 다른 프로토콜을 호환가능하게 하는 역할**
 주로 Http 프로토콜을 다른 프로토콜로 변환하기 위해 사용
 
-![[게이트 웨이.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%EA%B2%8C%EC%9D%B4%ED%8A%B8%20%EC%9B%A8%EC%9D%B4.png)
 
 **터널**
 
@@ -193,7 +193,7 @@ HTTP 포로토콜은 네트워크 통신에는 신경 쓰지 않으며, 이와 �
 
 HTTP 터널을 활용하는 대표적인 예로, 암호화된 SSL 트래픽을 HTTP 커넥션으로 전송함으로써 웹 트래픽만 허용하는 사내 방화벽을 통과시키는 것이 있음
 
-![[터널 예시.png|600]]
+![600](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/HTTP%20%EA%B0%9C%EA%B4%80%20/%20%ED%84%B0%EB%84%90%20%EC%98%88%EC%8B%9C.png)
 
 **에이전트**
 

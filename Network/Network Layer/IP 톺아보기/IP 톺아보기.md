@@ -61,8 +61,8 @@
 
 ### IP 클래스
 #### Claasful Network
-![[Pasted image 20231110165126.png]]
-![[스크린샷 2023-11-10 오후 5.02.38.png]]
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/IP%20%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0%20/%20Pasted%20image%2020231110165126.png)
+![](https://sunnnyimg.s3.ap-northeast-2.amazonaws.com/IP%20%ED%86%BA%EC%95%84%EB%B3%B4%EA%B8%B0%20/%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202023-11-10%20%EC%98%A4%ED%9B%84%205.02.38.png)
 
 - **클래스 A**
 	- 0.0.0.0 ~ 127.255.255.255
