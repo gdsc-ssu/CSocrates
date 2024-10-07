@@ -66,7 +66,7 @@ HTTP 통신에서 어떤 자원에 대한 CRUD 요청을 Resource와 Method로 �
 	1. REST API는 결국 HTTP라는 기존의 웹표준을 사용하기 때문에 캐싱 기능을 적용 가능
 4. **Client-Server Architecture**
 	1. REST API에서 자원을 가지고 있는 서버, 자원을 요청하는 클라이언트로 구조화 되어있으며 서버는 API를 제공하고 클라이언트는 사용자 인증, CONTEXT(세션, 로그인 정보) 등을 직접 관리하는 등 역할을 구분하여 의존성을 줄임
-	2. ![[Pasted image 20240810033429.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810033429.png)
 		1. 객체지향은 오로지 협력과 메시지로 구성
 		2. 협력은 클라이언트가 서버의 서비스를 요청하는 단방향 상호작용
 		3. 객체는 협력에 참여하는 동안 클라이언트와 서버의 역할을 동시에 수행하는 것이 일반적
@@ -76,13 +76,13 @@ HTTP 통신에서 어떤 자원에 대한 CRUD 요청을 Resource와 Method로 �
 		        1. 메세지 전송자
 		        2. 메세지 전송
 		        3. 메세지 수신자
-		        ![[Pasted image 20240810033718.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810033718.png)
 		5. Method
 			1. discount validator는 discountcondition에 할인을 만족하는지를 확인 위해 메시지를 통해 협력을 요구
 			2. 컴파일 시점에서는 인식 x
 			3. 런타임 시점에서 discount condition의 isSatisfedBy 오퍼레이션이 실행되는지 알 수 있다
 			→메시지 수신했을 때 실제로 실행되는 함수를 메서드
-			![[Pasted image 20240810033838.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810033838.png)
 
 
 			
@@ -99,7 +99,7 @@ HTTP 통신에서 어떤 자원에 대한 CRUD 요청을 Resource와 Method로 �
 
 MVC는 주로 UI를 개발하는데 사용되며 각 컴포넌트가 각자의 영갛ㄹ을 수행하며 시스템을 보다 모듈화하고 확장 가능하게 만듦
 
-![[Pasted image 20240810034830.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810034830.png)
 
 **MODEL**
 - 어플리케이션의 데이터와 비즈니스 로직을 담당
@@ -119,7 +119,7 @@ MVC는 주로 UI를 개발하는데 사용되며 각 컴포넌트가 각자의 �
 
 #### SPRING MVC 구조 
 
-![[Pasted image 20240810035126.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810035126.png)
 
 **DispatchServlet**
 - Front Controller의 역할을 수행하며 Request를 각각의 Controller에게 위임
@@ -152,11 +152,11 @@ MVC는 주로 UI를 개발하는데 사용되며 각 컴포넌트가 각자의 �
 우리가 주로 개발하는 방식 프론트 / 백 협업 방식은 MVC 패턴에 부합하는가?
 
 **Spring MVC**
-![[Pasted image 20240810040419.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810040419.png)
 클라이언트의 요청이 들어오면 ViewResolver를 통해 클라이언트에게 text/html , jsp 타입 혹은 파일의 경로 타입의 view 응답을 보냄
 
 **RESTful API**
-![[Pasted image 20240810040512.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810040512.png)
 클라이언트의 요청이 들어오면 MessageConverter를 통해 application/json이나 text/plain등 알맞은 형태로 리턴( HTTP Response )
 REST API는 HTTP 프로토콜 상에서 클라이언트가 서버를 호출하여 데이터를 받는 방식을 쉽게 정리한 표준화된 방식으로 @RestController 어노테이션을 통해 쉽게 구현 가능
 
@@ -179,14 +179,14 @@ https://www.inflearn.com/community/questions/1263068/mvc%EC%99%80-api%EC%9D%98-%
 - API Gateway는 트래픽 관리, CORS 지원, 권한 부여 및 액세스 제어, 제한, 모니터링 및 API 버전 관리 등 최대 수십만 개의 동시 API 호출을 수신 및 처리하는 데 관계된 모든 작업을 처리
 
 #### 가격
-![[Pasted image 20240810043044.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810043044.png)
 
 
 #### API 유형
-![[Pasted image 20240810043109.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810043109.png)
 
 
-![[Pasted image 20240810043144.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810043144.png)
 
 #### 실습
 
@@ -198,7 +198,7 @@ https://inpa.tistory.com/entry/AWS-%F0%9F%93%9A-API-Gateway-%EA%B0%9C%EB%85%90-%
 
 #### API GATEWAY PATTERN이란?
 
-![[Pasted image 20240810044503.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810044503.png)
 -  API Gateway Pattern 이란 마이크로 서비스로 나눠진 백엔드 서버들 앞에 하나의 API Gateway를 둠으로써 클라이언트는 API Gateway에 노출된 경로만 호출하고 요청된 라우트에 따라 적절한 서비스로 라우팅 시키고 response를 내려주는 것
 - 소프트웨어 아키텍처에서 클라이언트와 여러 백엔드 서비스 간의 상호 작용을 관리하기 위한 디자인 패턴
 - 클라이언트가 다양한 서비스에 접근할 때 일관된 인터페이스를 제공함으로써 시스템의 복잡성을 줄이고 관리 용이성을 높이는 것이 목표
@@ -211,7 +211,7 @@ https://inpa.tistory.com/entry/AWS-%F0%9F%93%9A-API-Gateway-%EA%B0%9C%EB%85%90-%
 
 #### VPC links for REST APIs
 
-![[Pasted image 20240810045602.png]]
+![](https://csocrates-s3.s3.ap-northeast-2.amazonaws.com/API%20Gateway%20/%20Pasted%20image%2020240810045602.png)
 
 
 #### MSA(MicroService Architecture)?
